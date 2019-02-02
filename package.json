@@ -1,0 +1,24 @@
+{
+  "name": "events-api",
+  "description": "Lookup nearby campaign events",
+  "dependencies": {
+    "@ewarren/serverless-routing": "^1.2.3",
+    "@itsjoekent/geokdbush": "^1.1.1",
+    "aws-sdk": "^2.395.0",
+    "geokdbush": "^1.1.0",
+    "kdbush": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elizabeth-Warren/events-api.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Elizabeth-Warren/events-api/issues"
+  },
+  "homepage": "https://github.com/Elizabeth-Warren/events-api#readme"
+}
