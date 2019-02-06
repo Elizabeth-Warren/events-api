@@ -21,6 +21,7 @@ function transformEvents(events = []) {
     zipcode,
     latitude,
     longitude,
+    rsvpLink,
   }) => ({
     title,
     date,
@@ -33,6 +34,7 @@ function transformEvents(events = []) {
     zipcode,
     latitude,
     longitude,
+    rsvpLink,
   }));
 }
 

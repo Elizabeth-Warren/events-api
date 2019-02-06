@@ -2,6 +2,7 @@ const { HttpError } = require('@ewarren/serverless-routing');
 const kdbush = require('kdbush');
 const geokdbush = require('@itsjoekent/geokdbush');
 const asyncWrap = require('../utils/asyncWrap');
+const eventTime = require('../utils/eventTime');
 
 const EVENTS_BUCKET = process.env.EVENTS_BUCKET;
 const EVENTS_FILE = process.env.EVENTS_FILE;
@@ -30,8 +31,6 @@ module.exports = (s3) => {
       return new HttpError('Failed to load event data.');
     }
 
-    console.log(events);
-
     const formattedEvents = events.map((event) => ({
       title: {
         'en-US': event['Event Title (US-EN)'],
@@ -48,11 +47,13 @@ module.exports = (s3) => {
       zipcode: event.Zipcode,
       latitude: event.Latitude,
       longitude: event.Longitude,
+      rsvpLink: event['RSVP Link'],
     }));
 
     const publishedEvents = formattedEvents.filter(({ isPublished }) => isPublished);
+    const openEvents = publishedEvents.filter(({ date }) => eventTime(date) > Date.now());
 
-    return publishedEvents;
+    return openEvents;
   }
 
   const loadEvents = asyncWrap(_loadEvents);
@@ -70,10 +71,7 @@ module.exports = (s3) => {
       return events;
     }
 
-    const eventTime = (input) => new Date(input).getTime();
-
-    const upcoming = events.filter(({ date }) => eventTime(date) > Date.now());
-    const sorted = upcoming.sort(({ date: a }, { date: b }) => (
+    const sorted = events.sort(({ date: a }, { date: b }) => (
       eventTime(a) - eventTime(b)
     ));
 
