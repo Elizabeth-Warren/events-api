@@ -12,7 +12,7 @@ provider:
       Resource: "*"
   environment:
     EVENTS_BUCKET: 'ew-events'
-    EVENTS_FILE: 'ew_events_template-events'
+    EVENTS_FILE: 'ew_events_final-events'
 
 functions:
   api:
