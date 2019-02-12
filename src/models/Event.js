@@ -51,7 +51,7 @@ module.exports = (s3) => {
     }));
 
     const publishedEvents = formattedEvents.filter(({ isPublished }) => isPublished);
-    const openEvents = publishedEvents.filter(({ date }) => eventTime(date) > Date.now());
+    const openEvents = publishedEvents.filter(({ date }) => eventTime(date, true) > Date.now());
 
     return openEvents;
   }
