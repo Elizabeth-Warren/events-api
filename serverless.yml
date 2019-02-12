@@ -1,6 +1,6 @@
 frameworkVersion: ">=1.0.0 <2.0.0"
 
-service: events-api
+service: events-api-jkent
 
 provider:
   name: aws

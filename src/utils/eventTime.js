@@ -8,10 +8,9 @@
 module.exports = function eventTime(timestamp, moveToEndOfDay = false) {
   const date = new Date(timestamp);
 
-  if (! moveToEndOfDay) {
-    return date.getTime();
+  if (moveToEndOfDay) {
+    date.setHours(23, 59, 59, 999);
   }
 
-  const end = date.setHours(23, 59, 59, 999);
-  return end.getTime();
+  return date.getTime();
 }
