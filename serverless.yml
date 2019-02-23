@@ -1,6 +1,14 @@
 frameworkVersion: ">=1.0.0 <2.0.0"
 
-service: events-api
+custom:
+  stage: ${opt:stage, 'dev'}
+  customDomain:
+    domainName: api.elizabethwarren.codes
+    basePath: ${self:custom.stage}-events
+    stage: ${self:custom.stage}
+    createRoute53Record: true
+
+service: ${self:custom.stage}-events-api
 
 provider:
   name: aws
@@ -14,15 +22,18 @@ provider:
     EVENTS_BUCKET: 'ew-events'
     EVENTS_FILE: 'ew_events_final-events'
 
+plugins:
+  - serverless-domain-manager
+
 functions:
   api:
     handler: src/handler.router
     events:
       - http:
-          path: /events
+          path: /
           method: any
           cors: true
       - http:
-          path: /events/{proxy+}
+          path: /{proxy+}
           method: any
           cors: true
