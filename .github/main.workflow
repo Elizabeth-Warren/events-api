@@ -25,7 +25,7 @@ action "Run Integration Tests" {
 action "Remove Test Stack" {
   uses = "elizabethwarren/serverless-integration-testing@master"
   runs = ["sh", "-c", "sls remove --stage $GITHUB_SHA"]
-  needs = "Create Test Stack"
+  needs = "Run Integration Tests"
   secrets = [
     "AWS_ACCESS_KEY_ID",
     "AWS_SECRET_ACCESS_KEY",
