@@ -17,9 +17,6 @@ action "Run Integration Tests" {
   uses = "elizabethwarren/serverless-integration-testing@master"
   runs = "npm run test:integration"
   needs = "Create Test Stack"
-  secrets = [
-    "INCOMING_SLACK_URI",
-  ]
 }
 
 action "Remove Test Stack" {
