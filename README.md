@@ -2,6 +2,10 @@
 
 Lookup nearby campaign events.
 
+**Prod**: https://api.elizabethwarren.codes/prod-events
+
+**Staging**: https://api.elizabethwarren.codes/staging-events
+
 ## Local Development
 
 Requires Docker.
@@ -19,8 +23,9 @@ Use the [serverless toolbox](https://github.com/Elizabeth-Warren/serverless-tool
 $ SRC=~/dev/events-api make toolbox # Replace ~/dev/events-api with the path
                                     # to the `events-api` on your host machine.
 
-$ sls deploy function -f api # Use `sls deploy` if you make any changes beyond code.
-$ sls logs -f api
+# Use `sls deploy --stage ...` if you make any changes beyond code.
+$ sls deploy function -f api --stage staging
+$ sls logs -f api --stage staging
 ```
 
 ## Endpoints
