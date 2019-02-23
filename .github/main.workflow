@@ -1,6 +1,6 @@
 workflow "Test most recent commit" {
   on = "push"
-  resolves = ["Create Test Stack"]
+  resolves = ["Remove Test Stack"]
 }
 
 action "Install modules" {
