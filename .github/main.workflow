@@ -4,7 +4,7 @@ workflow "Test most recent commit" {
 }
 
 action "Create Test Stack" {
-  uses = "elizabethwarren/serverless-integration-testing@master"
+  uses = "elizabeth-warren/serverless-integration-testing@master"
   runs = ["sh", "-c", "sls deploy --stage $GITHUB_SHA"]
   secrets = [
     "AWS_ACCESS_KEY_ID",
@@ -14,13 +14,13 @@ action "Create Test Stack" {
 }
 
 action "Run Integration Tests" {
-  uses = "elizabethwarren/serverless-integration-testing@master"
+  uses = "elizabeth-warren/serverless-integration-testing@master"
   runs = "npm run test:integration"
   needs = "Create Test Stack"
 }
 
 action "Remove Test Stack" {
-  uses = "elizabethwarren/serverless-integration-testing@master"
+  uses = "elizabeth-warren/serverless-integration-testing@master"
   runs = ["sh", "-c", "sls remove --stage $GITHUB_SHA"]
   needs = "Run Integration Tests"
   secrets = [
