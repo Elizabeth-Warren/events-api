@@ -6,8 +6,9 @@ const request = require('request-promise-native');
 
 async function test() {
   try {
-    const { events: upcomingEvents } = await request(`${EVENTS_ROUTE}/upcoming`);
-    assert.equal(Array.isArray(upcomingEvents), true);
+    const response = await request(`${EVENTS_ROUTE}/upcoming`);
+    console.log(response);
+    assert.equal(Array.isArray(response.events), true);
   } catch (error) {
     console.error(error);
     process.exit(1);
