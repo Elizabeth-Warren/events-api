@@ -11,6 +11,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
     "serverless-domain-manager": "^2.6.13"
   },
   "scripts": {
