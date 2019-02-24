@@ -8,7 +8,7 @@ custom:
     stage: ${self:custom.stage}
     createRoute53Record: true
 
-service: ${self:custom.stage}-events-api
+service: events-api
 
 provider:
   name: aws
