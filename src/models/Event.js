@@ -97,8 +97,10 @@ module.exports = (s3) => {
       return events;
     }
 
+    const locationEvents = events.filter(event => !! event.longitude && !! event.latitude);
+
     const index = new kdbush(
-      events,
+      locationEvents,
       ({ longitude }) => longitude,
       ({ latitude }) => latitude,
     );
