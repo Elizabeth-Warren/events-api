@@ -48,6 +48,7 @@ module.exports = (s3) => {
       latitude: event.Latitude,
       longitude: event.Longitude,
       rsvpLink: event['RSVP Link'],
+      rsvpCtaOverride: event['RSVP CTA'],
     }));
 
     const publishedEvents = formattedEvents.filter(({ isPublished }) => isPublished);
