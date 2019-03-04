@@ -11,6 +11,10 @@ function transformEvents(events = []) {
     return [];
   }
 
+  function iso(input) {
+    return input ? new Date(input).toISOString() : null;
+  }
+
   return events.map(({
     title,
     date,
@@ -27,9 +31,9 @@ function transformEvents(events = []) {
     rsvpCtaOverride,
   }) => ({
     title,
-    date,
-    startTime,
-    endTime,
+    date: iso(date),
+    startTime: iso(startTime),
+    endTime: iso(endTime),
     timezone,
     publicAddress,
     city,

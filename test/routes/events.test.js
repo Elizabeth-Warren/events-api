@@ -36,6 +36,7 @@ describe('test upcoming events route', function() {
       assert.equal(response.statusCode, 200);
       assert.equal(JSON.parse(response.body).events[0].title['en-US'], '1');
       assert.equal(JSON.parse(response.body).events[1].title['en-US'], '2');
+      assert.equal(new Date(JSON.parse(response.body).events[0].date).getTimezoneOffset(), 0);
 
       callback();
     });
