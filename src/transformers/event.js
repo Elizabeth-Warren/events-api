@@ -1,3 +1,5 @@
+// TODO: Can we delete this since we're no longer concerned about having to store sensitive information here?
+
 /**
  * Ensure only public information fields are returned in the API response.
  *
@@ -22,6 +24,7 @@ function transformEvents(events = []) {
     latitude,
     longitude,
     rsvpLink,
+    rsvpCtaOverride,
   }) => ({
     title,
     date,
@@ -35,6 +38,7 @@ function transformEvents(events = []) {
     latitude,
     longitude,
     rsvpLink,
+    rsvpCtaOverride,
   }));
 }
 
