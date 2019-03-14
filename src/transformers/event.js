@@ -32,8 +32,8 @@ function transformEvents(events = []) {
   }) => ({
     title,
     date: iso(date),
-    startTime: iso(startTime),
-    endTime: iso(endTime),
+    startTime,
+    endTime,
     timezone,
     publicAddress,
     city,
