@@ -1,37 +1,20 @@
-const { HttpError } = require('@ewarren/serverless-routing');
-const kdbush = require('kdbush');
-const geokdbush = require('@itsjoekent/geokdbush');
 const asyncWrap = require('../utils/asyncWrap');
-const eventTime = require('../utils/eventTime');
 
-const EVENTS_BUCKET = process.env.EVENTS_BUCKET;
-const EVENTS_FILE = process.env.EVENTS_FILE;
-
-module.exports = (s3) => {
-  /**
-   * Fetch and parse events from the flatfile.
-   *
-   * @return {Array<Object>|HttpError}
-   */
-  async function _loadEvents() {
-    const params = {
-      Bucket: EVENTS_BUCKET,
-      Key: EVENTS_FILE,
-    };
-
-    const data = await s3.getObject(params).promise();
-
-    if (! data) {
-      return new HttpError('Failed to load data.');
-    }
-
-    const { data: events } = JSON.parse(JSON.parse(data.Body.toString()));
-
-    if (! events || ! events.length) {
-      return new HttpError('Failed to load event data.');
-    }
-
-    const formattedEvents = events.map((event) => ({
+/**
+ * Model Attributes
+ *
+ * @param  {String} _id Message id
+ * @param  {String} text The message content
+ * @param  {String} slackArchiveUrl A deep link to the slack message
+ * @param  {String} threadId Id of the Slack thread this conversation relates to
+ * @param  {String} channelId Id of the Slack channel this conversation relates to
+ * @param  {String} conversationId The supporters phone number
+ * @param  {String} from The phone number of who sent the message
+ * @param  {String} to The phone number the message was sent to
+ * @param  {String|null} slackUser If the message was sent from Slack, this is their user id
+ * @param  {String|null} slackChannel If the message was sent from Slack, this is the channel id
+ * @param  {Date} createdAt The date at which this message was created
+ *
       title: {
         'en-US': event['Event Title (US-EN)'],
         'es-MX': event['Event Title (ES-MX)'],
@@ -49,17 +32,17 @@ module.exports = (s3) => {
       longitude: event.Longitude,
       rsvpLink: event['RSVP Link'],
       rsvpCtaOverride: event['RSVP CTA'],
-    }));
+ */
 
-    const publishedEvents = formattedEvents.filter(({ isPublished }) => isPublished);
+module.exports = (db) => {
+  const collection = db.collection('events');
 
-    // TODO: We should make this smarter.
-    const openEvents = publishedEvents.filter(({ date }) => eventTime(date, true) > Date.now());
-
-    return openEvents;
+  async function _init() {
+    collection.createIndex({ location: "2dsphere" });
+    console.log("created index on location");
   }
 
-  const loadEvents = asyncWrap(_loadEvents);
+  const init = asyncWrap(_init);
 
   /**
    * Get a list of events that haven't hapended yet,
@@ -68,58 +51,16 @@ module.exports = (s3) => {
    * @return      {Array<Object>}
    */
   async function _getUpcomingEvents() {
-    const events = await loadEvents();
-
-    if (events instanceof HttpError) {
-      return events;
-    }
-
-    const sorted = events.sort(({ date: a }, { date: b }) => (
-      eventTime(a) - eventTime(b)
-    ));
-
-    return sorted;
+    console.log("getUpcomingEvents from Mongo");
+    const eventsCursor = await collection.find();
+    const allEvents = await eventsCursor.toArray();
+    return allEvents;
   }
 
   const getUpcomingEvents = asyncWrap(_getUpcomingEvents);
 
-  /**
-   * Get events near a point within 300 miles.
-   *
-   * @param       {Number} originLon
-   * @param       {Number} originLat
-   * @return      {Array<Object>}
-   */
-  async function _getEventsNearPoint(originLon, originLat) {
-    const events = await loadEvents();
-
-    if (events instanceof HttpError) {
-      return events;
-    }
-
-    const locationEvents = events.filter(event => !! event.longitude && !! event.latitude);
-
-    const index = new kdbush(
-      locationEvents,
-      ({ longitude }) => longitude,
-      ({ latitude }) => latitude,
-    );
-
-    const maxDistance = 482.803; // 300 miles in Kilometers
-    const nearestPoints = geokdbush.around(index, originLon, originLat, Infinity, maxDistance, undefined, 'distance');
-
-    const nearestEventsInMiles = nearestPoints.map((event) => ({
-      ...event,
-      distance: event.distance / 1.6,
-    }));
-
-    return nearestEventsInMiles;
-  }
-
-  const getEventsNearPoint = asyncWrap(_getEventsNearPoint);
-
   return {
+    init,
     getUpcomingEvents,
-    getEventsNearPoint,
   };
 };

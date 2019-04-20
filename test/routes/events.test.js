@@ -1,7 +1,43 @@
 const { assert } = require('chai');
 const { HttpError, framework, router } = require('@ewarren/serverless-routing');
-const { mockAwsPromise, s3ify } = require('../stubs');
+const { connectToTestDatabase, testDb, mockAwsPromise, s3ify } = require('../stubs');
 const eventsRoutes = require('../../src/routes/events');
+
+describe('test upcoming events route using Mongo', function() {
+  it('should return the latest events in order', function(callback) {
+    console.log("starting test, connecting to test db to create fixtures");
+    connectToTestDatabase().then((db) => {
+      console.log(`db is ${db}`);
+      const collection = db.collection('events');
+      // TODO Use a proper fixtures library? And flesh out with real test data.
+      collection.insertOne({
+        location: { type: 'Point', coordinates: [ -73.97, 40.77 ] },
+        title: 'Keene Organizing Event',
+        published: true,
+        date: Date.now() + (1000 * 60 * 60 * 24),
+      });
+
+      const app = framework({ basePath: '/:stage-events' });
+      eventsRoutes({ app, connectToDatabase: connectToTestDatabase });
+      const onRequest = router(app);
+
+      onRequest({
+        httpMethod: 'get',
+        path: '/prod-events/upcoming',
+        queryStringParameters: {
+          v2: '1',
+        },
+        headers: { 'Content-Type': 'application/json' },
+      }, {}, (err, response) => {
+        assert.equal(response.statusCode, 200);
+        assert.equal(JSON.parse(response.body).events[0].title, 'Keene Organizing Event');
+        assert.equal(new Date(JSON.parse(response.body).events[0].date).getTimezoneOffset(), 0);
+
+        callback();
+      });
+    });
+  });
+});
 
 describe('test upcoming events route', function() {
   it('should return the latest events in order', function(callback) {

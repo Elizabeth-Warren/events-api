@@ -1,12 +1,24 @@
 const { HttpError } = require('@ewarren/serverless-routing');
+const EventS3Model = require('../models/EventS3');
 const EventModel = require('../models/Event');
 const transformEvents = require('../transformers/event');
 
-module.exports = ({ app, s3 }) => {
-  const Event = EventModel(s3);
+module.exports = ({ app, s3, connectToDatabase }) => {
+  app.get('/upcoming', async ({ success, failed, event }) => {
+    const { queryStringParameters } = event;
+    const {
+      v2 = false,
+    } = (queryStringParameters || {});
 
-  app.get('/upcoming', async ({ success, failed }) => {
-    const upcomingEvents = await Event.getUpcomingEvents();
+    var upcomingEvents;
+    if (v2) {
+      const db = await connectToDatabase();
+      const Event = EventModel(db);
+      upcomingEvents = await Event.getUpcomingEvents();
+    } else {
+      const EventS3 = EventS3Model(s3);
+      upcomingEvents = await EventS3.getUpcomingEvents();
+    }
 
     if (upcomingEvents instanceof HttpError) {
       return failed(upcomingEvents);
@@ -21,6 +33,7 @@ module.exports = ({ app, s3 }) => {
     const {
       lat = null,
       lon = null,
+      v2 = false,
     } = (queryStringParameters || {});
 
     const formattedLat = parseFloat(lat);
@@ -30,7 +43,8 @@ module.exports = ({ app, s3 }) => {
       return failed(new HttpError('Missing lat/lon.'), 400);
     }
 
-    const nearbyEvents = await Event.getEventsNearPoint(formattedLon, formattedLat);
+    const EventS3 = EventS3Model(s3);
+    const nearbyEvents = await EventS3.getEventsNearPoint(formattedLon, formattedLat);
 
     if (nearbyEvents instanceof HttpError) {
       return failed(nearbyEvents);
