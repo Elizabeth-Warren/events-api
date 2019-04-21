@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+  serverless:
+    build: .
+    depends_on:
+      - mongo
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./data:/data/db"

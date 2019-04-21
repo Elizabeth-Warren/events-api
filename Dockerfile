@@ -1,4 +1,4 @@
-FROM jtbaird/alpine-node-mongo:latest
+FROM node:8.10-alpine
 
 WORKDIR /usr/src/app
 

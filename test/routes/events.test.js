@@ -1,7 +1,38 @@
 const { assert } = require('chai');
 const { HttpError, framework, router } = require('@ewarren/serverless-routing');
-const { connectToTestDatabase, testDb, mockAwsPromise, s3ify } = require('../stubs');
+const { testDb, mockAwsPromise, s3ify } = require('../stubs');
 const eventsRoutes = require('../../src/routes/events');
+
+// TODO Don't duplicate lol
+function connectToTestDatabase() {
+
+  return new Promise((resolve, reject) => {
+    if (cachedDb && cachedDb.serverConfig.isConnected()) {
+      return resolve(cachedDb);
+    }
+
+    const databaseClient = new mongodb.MongoClient(
+      process.env.MONGODB_URI,
+      { useNewUrlParser: true },
+    );
+
+    databaseClient.connect((error) => {
+      if (error) {
+        console.error(error);
+        return reject();
+      }
+
+      const db = databaseClient.db('application');
+
+      // TODO(Jason Katz-Brown) Don't duplicate this code across connectToDatabase()
+      const Event = EventModel(testDb);
+      Event.init();
+
+      cachedDb = db;
+      return resolve(db);
+    });
+  });
+}
 
 describe('test upcoming events route using Mongo', function() {
   it('should return the latest events in order', function(callback) {
