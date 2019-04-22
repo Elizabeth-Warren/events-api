@@ -1,71 +1,55 @@
 const { assert } = require('chai');
 const { HttpError, framework, router } = require('@ewarren/serverless-routing');
-const { testDb, mockAwsPromise, s3ify } = require('../stubs');
+const { mockAwsPromise, s3ify } = require('../stubs');
+const { connectToDatabase, closeDatabaseConnection } = require('../../src/utils/connectToDatabase');
+const DatabaseCleaner = require('database-cleaner');
 const eventsRoutes = require('../../src/routes/events');
 
-// TODO Don't duplicate lol
-function connectToTestDatabase() {
+describe('test upcoming events route using Mongo', function() {
+  let testDb = null;
 
-  return new Promise((resolve, reject) => {
-    if (cachedDb && cachedDb.serverConfig.isConnected()) {
-      return resolve(cachedDb);
-    }
-
-    const databaseClient = new mongodb.MongoClient(
-      process.env.MONGODB_URI,
-      { useNewUrlParser: true },
-    );
-
-    databaseClient.connect((error) => {
-      if (error) {
-        console.error(error);
-        return reject();
-      }
-
-      const db = databaseClient.db('application');
-
-      // TODO(Jason Katz-Brown) Don't duplicate this code across connectToDatabase()
-      const Event = EventModel(testDb);
-      Event.init();
-
-      cachedDb = db;
-      return resolve(db);
+  before(function(done) {
+    connectToDatabase().then((db) => {
+      testDb = db;
+      (new DatabaseCleaner('mongodb')).clean(testDb, done)
     });
   });
-}
 
-describe('test upcoming events route using Mongo', function() {
-  it('should return the latest events in order', function(callback) {
-    console.log("starting test, connecting to test db to create fixtures");
-    connectToTestDatabase().then((db) => {
-      console.log(`db is ${db}`);
-      const collection = db.collection('events');
-      // TODO Use a proper fixtures library? And flesh out with real test data.
-      collection.insertOne({
-        location: { type: 'Point', coordinates: [ -73.97, 40.77 ] },
-        title: 'Keene Organizing Event',
-        published: true,
-        date: Date.now() + (1000 * 60 * 60 * 24),
-      });
+  after(function() {
+    closeDatabaseConnection();
+  });
 
-      const app = framework({ basePath: '/:stage-events' });
-      eventsRoutes({ app, connectToDatabase: connectToTestDatabase });
-      const onRequest = router(app);
+  it('should return the latest events in order', function(done) {
+    const collection = testDb.collection('events');
+    // TODO Use a proper fixtures library? And flesh out with real test data.
+    collection.insertOne({
+      location: { type: 'Point', coordinates: [ -73.97, 40.77 ] },
+      title: 'Keene Organizing Event',
+      published: true,
+      date: Date.now() + (1000 * 60 * 60 * 24),
+    });
 
-      onRequest({
-        httpMethod: 'get',
-        path: '/prod-events/upcoming',
-        queryStringParameters: {
-          v2: '1',
-        },
-        headers: { 'Content-Type': 'application/json' },
-      }, {}, (err, response) => {
-        assert.equal(response.statusCode, 200);
-        assert.equal(JSON.parse(response.body).events[0].title, 'Keene Organizing Event');
-        assert.equal(new Date(JSON.parse(response.body).events[0].date).getTimezoneOffset(), 0);
+    const app = framework({ basePath: '/:stage-events' });
+    eventsRoutes({ app, connectToDatabase });
+    const onRequest = router(app);
 
-        callback();
-      });
+    onRequest({
+      httpMethod: 'get',
+      path: '/prod-events/upcoming',
+      queryStringParameters: {
+        source: 'mongodb',
+      },
+      headers: { 'Content-Type': 'application/json' },
+    }, {}, (err, response) => {
+      assert.equal(response.statusCode, 200);
+      events = JSON.parse(response.body).events;
+      console.log("Got events:");
+      console.log(JSON.stringify(events));
+      assert.equal(events.length, 1);
+      assert.equal(events[0].title, 'Keene Organizing Event');
+      assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
+
+      done();
     });
   });
 });

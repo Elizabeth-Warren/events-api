@@ -2,16 +2,17 @@ const { HttpError } = require('@ewarren/serverless-routing');
 const EventS3Model = require('../models/EventS3');
 const EventModel = require('../models/Event');
 const transformEvents = require('../transformers/event');
+const { connectToDatabase } = require('../utils/connectToDatabase');
 
-module.exports = ({ app, s3, connectToDatabase }) => {
+module.exports = ({ app, s3 }) => {
   app.get('/upcoming', async ({ success, failed, event }) => {
     const { queryStringParameters } = event;
     const {
-      v2 = false,
+      source = 's3',
     } = (queryStringParameters || {});
 
     var upcomingEvents;
-    if (v2) {
+    if (source === 'mongodb') {
       const db = await connectToDatabase();
       const Event = EventModel(db);
       upcomingEvents = await Event.getUpcomingEvents();
