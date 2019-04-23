@@ -1,38 +1,29 @@
 const asyncWrap = require('../utils/asyncWrap');
-const geolib = require('geolib');
 
 /**
- * Model Attributes
+ * Represents an event, a la Mobilize America or a BSD event.
  *
- * @param  {String} _id Message id
- * @param  {String} text The message content
- * @param  {String} slackArchiveUrl A deep link to the slack message
- * @param  {String} threadId Id of the Slack thread this conversation relates to
- * @param  {String} channelId Id of the Slack channel this conversation relates to
- * @param  {String} conversationId The supporters phone number
- * @param  {String} from The phone number of who sent the message
- * @param  {String} to The phone number the message was sent to
- * @param  {String|null} slackUser If the message was sent from Slack, this is their user id
- * @param  {String|null} slackChannel If the message was sent from Slack, this is the channel id
- * @param  {Date} createdAt The date at which this message was created
+ * Pulls events from mongodb, where an example document is like:
+ *   {
+ *     loc: { type: 'Point', coordinates: [-93.8549133, 41.6157869] },
+ *     title: {
+ *       'en-US': 'Waukee for Warren Coffee Hours',
+ *       'es-MX': 'Waukee for Warren Coffee Hours',
+ *     },
+ *     published: true,
+ *     date: new Date(1556114400),
+ *     startTime: new Date(1556114400),  // April 24, 2019 10:00 AM EDT
+ *     endTime: new Date(1556125200),
+ *     timezone: 'America/Chicago',
+ *     publicAddress: '1025 E Hickman Rd, Waukee IA 50263',
+ *     city: 'Waukee',
+ *     state: 'IA',
+ *     zipcode: '50263',
+ *     rsvpLink: 'https://events.elizabethwarren.com/event/88773/',
+ *     rsvpCtaOverride: null,
+ * }
  *
-      title: {
-        'en-US': event['Event Title (US-EN)'],
-        'es-MX': event['Event Title (ES-MX)'],
-      },
-      isPublished: event.Published,
-      date: event.Date,
-      startTime: event['Start Time'],
-      endTime: event['End Time'],
-      timezone: event.Timezone,
-      publicAddress: event['Public Address'],
-      city: event.City,
-      state: event.State,
-      zipcode: event.Zipcode,
-      latitude: event.Latitude,
-      longitude: event.Longitude,
-      rsvpLink: event['RSVP Link'],
-      rsvpCtaOverride: event['RSVP CTA'],
+ * Returns list of event objects in that format.
  */
 
 module.exports = (db) => {
@@ -47,8 +38,8 @@ module.exports = (db) => {
   const init = asyncWrap(_init);
 
   /**
-   * Get a list of events that haven't hapended yet,
-   * sorted by how close they are to happening.
+   * Get a list of events that haven't happened yet,
+   * ordered by how soon they will happen.
    *
    * @return      {Array<Object>}
    */
@@ -60,7 +51,7 @@ module.exports = (db) => {
   const getUpcomingEvents = asyncWrap(_getUpcomingEvents);
 
   /**
-   * Get events near a point within 300 miles.
+   * Get events near a point within 300 miles, ordered by proximity.
    *
    * @param       {Number} originLon
    * @param       {Number} originLat

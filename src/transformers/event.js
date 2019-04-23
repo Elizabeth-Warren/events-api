@@ -1,5 +1,5 @@
 /**
- * Map event as stored in mongodb events table into the API response.
+ * Map an event as stored in mongodb events table into the API response.
  *
  * @param  {Array}  document from events collection
  * @return {Array}  event suitable for API response

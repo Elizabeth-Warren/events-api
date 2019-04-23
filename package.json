@@ -3,8 +3,6 @@
   "description": "Lookup nearby campaign events",
   "dependencies": {
     "@ewarren/serverless-routing": "^1.2.3",
-    "@itsjoekent/geokdbush": "^1.1.1",
-    "geolib": "^2.0.24",
     "mongodb": "^3.2.3"
   },
   "devDependencies": {
