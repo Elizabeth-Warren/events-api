@@ -8,13 +8,16 @@ const {
 const DatabaseCleaner = require('database-cleaner');
 const eventsRoutes = require('../../src/routes/events');
 
-describe('test upcoming events route using Mongo', function() {
+describe('events routes', function() {
   let onRequest = null;
   let testDb = null;
 
   const testEvents = [{
     loc: { type: 'Point', coordinates: [-93.8549133, 41.6157869] },
-    title: 'Waukee for Warren Coffee Hours',
+    title: {
+      'en-US': 'Waukee for Warren Coffee Hours',
+      'es-MX': 'Waukee for Warren Coffee Hours',
+    },
     published: true,
     date: new Date(1556114400),
     startTime: new Date(1556114400),  // April 24, 2019 10:00 AM EDT
@@ -28,7 +31,10 @@ describe('test upcoming events route using Mongo', function() {
     rsvpCtaOverride: null,
   }, {
     loc: null,
-    title: 'Salem Community Meeting',
+    title: {
+      'en-US': 'Salem Community Meeting',
+      'es-MX': 'Salem Community Meeting',
+    },
     published: true,
     date: new Date(1556395200),
     startTime: new Date(1556395200),  // Saturday, April 27, 2019 4:00 PM EDT
@@ -42,7 +48,10 @@ describe('test upcoming events route using Mongo', function() {
     rsvpCtaOverride: null,
   }, {
     loc: { type: 'Point', coordinates: [-71.6080009, 42.2638905] },
-    title: 'Win with Warren Party MetroWest',
+    title: {
+      'en-US': 'Win with Warren Party MetroWest',
+      'es-MX': 'Win with Warren Party MetroWest',
+    },
     published: true,
     date: new Date(1556319600),
     startTime: new Date(1556319600),  // April 26, 2019 7:00 PM EDT
@@ -56,7 +65,10 @@ describe('test upcoming events route using Mongo', function() {
     rsvpCtaOverride: null,
   }, {
     loc: { type: 'Point', coordinates: [-71.0953117, 42.326097] },
-    title: 'Win with Warren Party Roxbury',
+    title: {
+      'en-US': 'Win with Warren Party Roxbury',
+      'es-MX': 'Win with Warren Party Roxbury',
+    },
     published: true,
     date: new Date(1557077400),
     startTime: new Date(1557077400),  // May 5, 2019 1:30 PM EDT
@@ -89,7 +101,7 @@ describe('test upcoming events route using Mongo', function() {
     closeDatabaseConnection();
   });
 
-  it('should return the latest events in temporal order', function(done) {
+  it('returns the latest events in temporal order', function(done) {
     onRequest({
       httpMethod: 'get',
       path: '/prod-events/upcoming',
@@ -100,14 +112,14 @@ describe('test upcoming events route using Mongo', function() {
 
       // Every event is returned, and the Iowa event is soonest.
       assert.equal(events.length, 4);
-      assert.equal(events[0].title, 'Waukee for Warren Coffee Hours');
+      assert.equal(events[0].title['en-US'], 'Waukee for Warren Coffee Hours');
       assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
 
       done();
     });
   });
 
-  it('should return nearby events in proximity order', function(done) {
+  it('returns nearby events in proximity order', function(done) {
     onRequest({
       httpMethod: 'get',
       path: '/prod-events/nearby',
@@ -123,8 +135,8 @@ describe('test upcoming events route using Mongo', function() {
       // Iowa event is excluded; Salem event is close enough but does not have lat/long in DB.
       // Roxbury event is first because it's nearest.
       assert.equal(events.length, 2);
-      assert.equal(events[0].title, 'Win with Warren Party Roxbury');
-      assert.equal(events[1].title, 'Win with Warren Party MetroWest');
+      assert.equal(events[0].title['en-US'], 'Win with Warren Party Roxbury');
+      assert.equal(events[1].title['en-US'], 'Win with Warren Party MetroWest');
       assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
 
       done();
