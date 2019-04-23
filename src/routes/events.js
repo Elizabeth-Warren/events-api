@@ -1,12 +1,12 @@
 const { HttpError } = require('@ewarren/serverless-routing');
 const EventModel = require('../models/Event');
 const transformEvents = require('../transformers/event');
-const { connectToDatabase } = require('../utils/connectToDatabase');
+const { setupDatabase } = require('../utils/connectToDatabase');
 
-module.exports = ({ app }) => {
+module.exports = (app) => {
   app.get('/upcoming', async ({ success, failed, event }) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    const db = await connectToDatabase();
+    const db = await setupDatabase();
     const Event = EventModel(db);
     const upcomingEvents = await Event.getUpcomingEvents();
 
@@ -19,7 +19,7 @@ module.exports = ({ app }) => {
 
   app.get('/nearby', async ({ success, failed, event }) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    const db = await connectToDatabase();
+    const db = await setupDatabase();
     const { queryStringParameters } = event;
 
     const {
@@ -27,15 +27,15 @@ module.exports = ({ app }) => {
       lon = null,
     } = (queryStringParameters || {});
 
-    const formattedLat = parseFloat(lat);
-    const formattedLon = parseFloat(lon);
+    const latFloat = parseFloat(lat);
+    const lonFloat = parseFloat(lon);
 
-    if (isNaN(formattedLat) || isNaN(formattedLon)) {
+    if (isNaN(latFloat) || isNaN(lonFloat)) {
       return failed(new HttpError('Missing lat/lon.'), 400);
     }
 
     const Event = EventModel(db);
-    const nearbyEvents = await Event.getEventsNearPoint(formattedLon, formattedLat);
+    const nearbyEvents = await Event.getEventsNearPoint(lonFloat, latFloat);
 
     if (nearbyEvents instanceof HttpError) {
       return failed(nearbyEvents);

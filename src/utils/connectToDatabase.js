@@ -1,8 +1,16 @@
 const mongodb = require('mongodb');
 const EventModel = require('../models/Event');
 
+const mongodb_uri = process.env.MONGODB_URI || 'mongodb://mongo:27017';
+
 let cachedClient = null;
 let cachedDb = null;
+
+const setupDatabase = () => {
+  return new Promise((resolve, reject) => {
+    connectToDatabase().then(initDatabase().then(resolve, reject));
+  });
+}
 
 const connectToDatabase = () => {
   return new Promise((resolve, reject) => {
@@ -11,7 +19,7 @@ const connectToDatabase = () => {
     }
 
     cachedClient = new mongodb.MongoClient(
-      process.env.MONGODB_URI,
+      mongodb_uri,
       { useNewUrlParser: true },
     );
 
@@ -21,15 +29,16 @@ const connectToDatabase = () => {
         return reject();
       }
 
-      const db = cachedClient.db('application');
-
-      // TODO(Jason Katz-Brown) Don't duplicate this code across connectToDatabase()
-      const Event = EventModel(db);
-      Event.init();
-
-      cachedDb = db;
-      return resolve(db);
+      cachedDb = cachedClient.db('application');
+      resolve(cachedDb);
     });
+  });
+}
+
+const initDatabase = () => {
+  return new Promise((resolve, reject) => {
+    const Event = EventModel(cachedDb);
+    Event.init().then(() => resolve(cachedDb));
   });
 }
 
@@ -38,6 +47,8 @@ const closeDatabaseConnection = () => {
 }
 
 module.exports = {
+  setupDatabase,
   connectToDatabase,
+  initDatabase,
   closeDatabaseConnection
 };

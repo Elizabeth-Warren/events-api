@@ -15,9 +15,8 @@ function transformEvents(events = []) {
     return input ? new Date(input).toISOString() : null;
   }
 
-  console.log("in transformer...");
   return events.map(({
-    location,
+    loc,
     title,
     date,
     startTime,
@@ -41,10 +40,10 @@ function transformEvents(events = []) {
     city,
     state,
     zipcode,
-    latitude: location ? location.coordinates[1] : null,
-    longitude: location ? location.coordinates[0] : null,
+    longitude: loc ? loc.coordinates[0] : null,
+    latitude: loc ? loc.coordinates[1] : null,
     rsvpLink,
-    rsvpCtaOverride
+    rsvpCtaOverride,
   }));
 }
 

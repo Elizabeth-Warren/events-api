@@ -1,4 +1,5 @@
 const asyncWrap = require('../utils/asyncWrap');
+const geolib = require('geolib');
 
 /**
  * Model Attributes
@@ -36,11 +37,11 @@ const asyncWrap = require('../utils/asyncWrap');
 
 module.exports = (db) => {
   const collection = db.collection('events');
+  const searchRadius = 300 * 1609;  // 300 miles in meters
 
   async function _init() {
-    await collection.createIndex({ location: "2dsphere" });
     await collection.createIndex({ startTime: 1 });
-    console.log("created index on location and starttime");
+    await collection.createIndex({ loc: '2dsphere' });
   }
 
   const init = asyncWrap(_init);
@@ -52,10 +53,8 @@ module.exports = (db) => {
    * @return      {Array<Object>}
    */
   async function _getUpcomingEvents() {
-    console.log("getUpcomingEvents from Mongo");
-    const eventsCursor = await collection.find().sort( { startTime: -1 } );
-    const allEvents = await eventsCursor.toArray();
-    return allEvents;
+    const eventsCursor = await collection.find().sort( { startTime: 1 } );
+    return await eventsCursor.toArray();
   }
 
   const getUpcomingEvents = asyncWrap(_getUpcomingEvents);
@@ -68,14 +67,18 @@ module.exports = (db) => {
    * @return      {Array<Object>}
    */
   async function _getEventsNearPoint(originLon, originLat) {
-    events = []
-
-    const nearestEventsInMiles = events.map((event) => ({
-      ...event,
-      distance: 3, // TODO
-    }));
-
-    return events;
+    const eventsCursor = await collection.find({
+      loc: {
+        $near: {
+          $geometry: {
+            type: 'Point' ,
+            coordinates: [ originLon, originLat ]
+          },
+          $maxDistance: searchRadius
+        }
+      }
+    })
+    return await eventsCursor.toArray();
   }
 
   const getEventsNearPoint = asyncWrap(_getEventsNearPoint);

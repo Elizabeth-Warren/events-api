@@ -2,9 +2,12 @@ frameworkVersion: ">=1.0.0 <2.0.0"
 
 custom:
   stage: ${opt:stage, 'dev'}
+  mongo:
+    dev: ${ssm:SLACK_FOR_SMS_MONGO_DEV}
+    prod: ${ssm:SLACK_FOR_SMS_MONGO_PROD}
   customDomain:
     domainName: api.elizabethwarren.codes
-    basePath: ${self:custom.stage}-events
+    basePath: ${self:custom.stage}-events-v2
     stage: ${self:custom.stage}
     createRoute53Record: true
 
@@ -13,14 +16,8 @@ service: events-api
 provider:
   name: aws
   runtime: nodejs8.10
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - s3:GetObject
-      Resource: "*"
   environment:
-    EVENTS_BUCKET: 'ew-events'
-    EVENTS_FILE: 'ew_events_final-events'
+    MONGODB_URI: ${self:custom.mongo.${self:custom.stage}}
 
 plugins:
   - serverless-domain-manager

@@ -1,11 +1,8 @@
 const { framework, router } = require('@ewarren/serverless-routing');
 const AWS = require('aws-sdk');
 
-const s3 = new AWS.S3();
 const app = framework({ basePath: '/:stage-events' });
 
-require('./routes/events')({
-  app, s3
-});
+require('./routes/events')(app);
 
 module.exports.router = router(app);
