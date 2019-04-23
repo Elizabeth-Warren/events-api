@@ -1,25 +1,14 @@
 const { HttpError } = require('@ewarren/serverless-routing');
-const EventS3Model = require('../models/EventS3');
 const EventModel = require('../models/Event');
 const transformEvents = require('../transformers/event');
 const { connectToDatabase } = require('../utils/connectToDatabase');
 
-module.exports = ({ app, s3 }) => {
+module.exports = ({ app }) => {
   app.get('/upcoming', async ({ success, failed, event }) => {
-    const { queryStringParameters } = event;
-    const {
-      source = 's3',
-    } = (queryStringParameters || {});
-
-    var upcomingEvents;
-    if (source === 'mongodb') {
-      const db = await connectToDatabase();
-      const Event = EventModel(db);
-      upcomingEvents = await Event.getUpcomingEvents();
-    } else {
-      const EventS3 = EventS3Model(s3);
-      upcomingEvents = await EventS3.getUpcomingEvents();
-    }
+    context.callbackWaitsForEmptyEventLoop = false;
+    const db = await connectToDatabase();
+    const Event = EventModel(db);
+    const upcomingEvents = await Event.getUpcomingEvents();
 
     if (upcomingEvents instanceof HttpError) {
       return failed(upcomingEvents);
@@ -29,12 +18,13 @@ module.exports = ({ app, s3 }) => {
   });
 
   app.get('/nearby', async ({ success, failed, event }) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    const db = await connectToDatabase();
     const { queryStringParameters } = event;
 
     const {
       lat = null,
       lon = null,
-      v2 = false,
     } = (queryStringParameters || {});
 
     const formattedLat = parseFloat(lat);
@@ -44,8 +34,8 @@ module.exports = ({ app, s3 }) => {
       return failed(new HttpError('Missing lat/lon.'), 400);
     }
 
-    const EventS3 = EventS3Model(s3);
-    const nearbyEvents = await EventS3.getEventsNearPoint(formattedLon, formattedLat);
+    const Event = EventModel(db);
+    const nearbyEvents = await Event.getEventsNearPoint(formattedLon, formattedLat);
 
     if (nearbyEvents instanceof HttpError) {
       return failed(nearbyEvents);

@@ -8,10 +8,56 @@ const eventsRoutes = require('../../src/routes/events');
 describe('test upcoming events route using Mongo', function() {
   let testDb = null;
 
+  const testEvents = [{
+    location: { type: 'Point', coordinates: [-93.8549133, 41.6157869] },
+    title: 'Waukee for Warren Coffee Hours',
+    published: true,
+    date: new Date(1556114400),
+    startTime: new Date(1556114400),
+    endTime: new Date(1556125200),
+    timezone: 'America/Chicago',
+    publicAddress: '1025 E Hickman Rd, Waukee IA 50263',
+    city: 'Waukee',
+    state: 'IA',
+    zipcode: '50263',
+    rsvpLink: 'https://events.elizabethwarren.com/event/88773/',
+    rsvpCtaOverride: null,
+  }, {
+    location: null,
+    title: 'Salem Community Meeting',
+    published: true,
+    date: new Date(1556395200),
+    startTime: new Date(1556395200),
+    endTime: new Date(1556402400),
+    timezone: 'America/New_York',
+    publicAddress: 'Salem, NH 03079',
+    city: 'Salem',
+    state: 'NH',
+    zipcode: '03079',
+    rsvpLink: 'https://events.elizabethwarren.com/event/90805/',
+    rsvpCtaOverride: null,
+  }, {
+    location: { type: 'Point', coordinates: [-71.0953117, 42.326097] },
+    title: 'Win with Warren Party Roxbury',
+    published: true,
+    date: new Date(1557077400),
+    startTime: new Date(1557077400),
+    endTime: new Date(1557086400),
+    timezone: 'America/New_York',
+    publicAddress: 'Fort Ave, Boston MA 02119',
+    city: 'Boston',
+    state: 'MA',
+    zipcode: '02119',
+    rsvpLink: 'https://events.elizabethwarren.com/event/89109/',
+    rsvpCtaOverride: null,
+  }];
+
   before(function(done) {
     connectToDatabase().then((db) => {
       testDb = db;
-      (new DatabaseCleaner('mongodb')).clean(testDb, done)
+      (new DatabaseCleaner('mongodb')).clean(testDb, () => {
+        testDb.collection('events').insertMany(testEvents).then(() => { done() });
+      });
     });
   });
 
@@ -19,16 +65,7 @@ describe('test upcoming events route using Mongo', function() {
     closeDatabaseConnection();
   });
 
-  it('should return the latest events in order', function(done) {
-    const collection = testDb.collection('events');
-    // TODO Use a proper fixtures library? And flesh out with real test data.
-    collection.insertOne({
-      location: { type: 'Point', coordinates: [ -73.97, 40.77 ] },
-      title: 'Keene Organizing Event',
-      published: true,
-      date: Date.now() + (1000 * 60 * 60 * 24),
-    });
-
+  it.only('should return the latest events in order', function(done) {
     const app = framework({ basePath: '/:stage-events' });
     eventsRoutes({ app, connectToDatabase });
     const onRequest = router(app);
@@ -45,8 +82,8 @@ describe('test upcoming events route using Mongo', function() {
       events = JSON.parse(response.body).events;
       console.log("Got events:");
       console.log(JSON.stringify(events));
-      assert.equal(events.length, 1);
-      assert.equal(events[0].title, 'Keene Organizing Event');
+      assert.equal(events.length, 3);
+      assert.equal(events[0].title, 'Win with Warren Party Roxbury');
       assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
 
       done();

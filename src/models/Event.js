@@ -38,8 +38,9 @@ module.exports = (db) => {
   const collection = db.collection('events');
 
   async function _init() {
-    collection.createIndex({ location: "2dsphere" });
-    console.log("created index on location");
+    await collection.createIndex({ location: "2dsphere" });
+    await collection.createIndex({ startTime: 1 });
+    console.log("created index on location and starttime");
   }
 
   const init = asyncWrap(_init);
@@ -52,15 +53,36 @@ module.exports = (db) => {
    */
   async function _getUpcomingEvents() {
     console.log("getUpcomingEvents from Mongo");
-    const eventsCursor = await collection.find();
+    const eventsCursor = await collection.find().sort( { startTime: -1 } );
     const allEvents = await eventsCursor.toArray();
     return allEvents;
   }
 
   const getUpcomingEvents = asyncWrap(_getUpcomingEvents);
 
+  /**
+   * Get events near a point within 300 miles.
+   *
+   * @param       {Number} originLon
+   * @param       {Number} originLat
+   * @return      {Array<Object>}
+   */
+  async function _getEventsNearPoint(originLon, originLat) {
+    events = []
+
+    const nearestEventsInMiles = events.map((event) => ({
+      ...event,
+      distance: 3, // TODO
+    }));
+
+    return events;
+  }
+
+  const getEventsNearPoint = asyncWrap(_getEventsNearPoint);
+
   return {
     init,
     getUpcomingEvents,
+    getEventsNearPoint,
   };
 };
