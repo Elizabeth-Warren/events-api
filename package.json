@@ -15,7 +15,6 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "test:integration": "node test-integration/index.js"
   },
   "repository": {
     "type": "git",
