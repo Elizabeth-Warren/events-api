@@ -45,7 +45,7 @@ module.exports = (db) => {
    */
   async function _getUpcomingEvents() {
     const eventsCursor = await collection.find().sort( { startTime: 1 } );
-    return await eventsCursor.toArray();
+    return eventsCursor.toArray();
   }
 
   const getUpcomingEvents = asyncWrap(_getUpcomingEvents);
@@ -69,7 +69,7 @@ module.exports = (db) => {
         }
       }
     })
-    return await eventsCursor.toArray();
+    return eventsCursor.toArray();
   }
 
   const getEventsNearPoint = asyncWrap(_getEventsNearPoint);
