@@ -6,6 +6,7 @@ const {
   closeDatabaseConnection
 } = require('../../src/utils/connectToDatabase');
 const DatabaseCleaner = require('database-cleaner');
+const MockDate = require('mockdate');
 const eventsRoutes = require('../../src/routes/events');
 const testEvents = require('../fixtures/events');
 
@@ -16,6 +17,7 @@ describe('events routes', function() {
   before(function(done) {
     connectToDatabase().then((db) => {
       testDb = db;
+      MockDate.set(new Date('2019-04-22'));
       (new DatabaseCleaner('mongodb')).clean(testDb, () => {
         initDatabase().then(() => {
           testDb.collection('events').insertMany(testEvents).then(() => { done() });
@@ -42,8 +44,9 @@ describe('events routes', function() {
       events = JSON.parse(response.body).events;
 
       // Every event is returned, and the Iowa event is soonest.
-      assert.equal(events.length, 4);
-      assert.equal(events[0].title['en-US'], 'Waukee for Warren Coffee Hours');
+      assert.equal(events.length, 5);
+      assert.equal(events[0].title['en-US'], 'Tipton Meet & Greet with Elizabeth Warren');
+      assert.equal(events[1].title['en-US'], 'Waukee for Warren Coffee Hours');
       assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
 
       done();

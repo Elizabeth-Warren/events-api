@@ -43,7 +43,7 @@ const initDatabase = () => {
 }
 
 const closeDatabaseConnection = () => {
-  cachedClient.close();
+  return cachedClient.close();
 }
 
 module.exports = {

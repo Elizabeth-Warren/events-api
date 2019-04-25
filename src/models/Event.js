@@ -31,8 +31,9 @@ module.exports = (db) => {
   const searchRadius = 300 * 1609;  // 300 miles in meters
 
   async function _init() {
-    await collection.createIndex({ startTime: 1 });
-    await collection.createIndex({ loc: '2dsphere' });
+    await collection.createIndex([ { startTime: 1 }, { highPriority: -1 }]);
+    await collection.createIndex({ mobilizeId: 1 });
+    await collection.createIndex([{ loc: '2dsphere' }, { highPriority: -1 }]);
   }
 
   const init = asyncWrap(_init);
@@ -44,7 +45,12 @@ module.exports = (db) => {
    * @return      {Array<Object>}
    */
   async function _getUpcomingEvents() {
-    const eventsCursor = await collection.find().sort( { startTime: 1 } );
+    console.log('new Date: ', new Date());
+    const eventsCursor = await collection.find({
+      startTime: {
+        $gte : new Date(),
+      }
+    }).sort({ highPriority: -1, startTime: 1 });
     return eventsCursor.toArray();
   }
 
