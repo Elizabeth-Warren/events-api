@@ -86,7 +86,9 @@ async function upsertBatch(batch, collection) {
 async function replaceEventsInCollection(events, collection) {
   await deleteAllBut(events, collection);
   const batches = batchArray(events, upsertBatchSize);
-  return Promise.waterfall(batches.map(batch => upsertBatch(batch, collection)));
+  for (batch of batches) {
+    await upsertBatch(batch, collection);
+  }
 }
 
 const importEvents = async function() {
