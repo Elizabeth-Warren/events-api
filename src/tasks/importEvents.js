@@ -48,7 +48,7 @@ async function getAllEvents() {
       organizationId => getEventsForOrganization(organizationId)
     )
   ).then(nestedEvents => {
-    let flatEvents = []
+    let flatEvents = [];
     for (let organizationEvents of nestedEvents) {
       flatEvents.push(...organizationEvents);
     }
@@ -98,6 +98,7 @@ const importEvents = async function() {
   const db = await setupDatabase();
   const collection = db.collection('events');
   const events = await getAllEvents();
+  console.log('after await getAllEvents()');
   return replaceEventsInCollection(events, collection);
 }
 module.exports = importEvents;
