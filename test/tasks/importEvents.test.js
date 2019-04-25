@@ -21,13 +21,12 @@ describe('importEvents task', function() {
   });
 
   after(function() {
-    console.log("closeDatabaseConnection");
+    console.log("closeDatabaseConnection()");
     // TODO URRRRR what's going on -- why 
-    //closeDatabaseConnection();
+    closeDatabaseConnection();
   });
 
   it('imports events', async () => {
-    console.log('starting importEvents');
     await importEvents();
     const collection = testDb.collection('events');
     const eventsCursor = await collection.find().sort( { startTime: 1 } );

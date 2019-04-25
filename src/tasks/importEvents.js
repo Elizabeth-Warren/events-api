@@ -41,12 +41,13 @@ async function getEventsForOrganization(organizationId) {
 }
 
 async function getAllEvents() {
+  console.log('getAllEvents()');
   const promotedOrganizationIds = await getPromotedOrganizations();
   return Promise.all(
     promotedOrganizationIds.map(
       organizationId => getEventsForOrganization(organizationId)
     )
-  ).then((nestedEvents) => {
+  ).then(nestedEvents => {
     let flatEvents = []
     for (let organizationEvents of nestedEvents) {
       flatEvents.push(...organizationEvents);
@@ -75,7 +76,7 @@ function batchArray(array, batchSize) {
 }
 
 async function upsertBatch(batch, collection) {
-  console.log('upsertBatch');
+  console.log('upsertBatch()');
   const bulk = await collection.initializeUnorderedBulkOp();
   for (let e of batch) {
     await bulk.find({ mobilizeId: e.mobilizeId }).upsert().updateOne(e);
@@ -84,6 +85,7 @@ async function upsertBatch(batch, collection) {
 }
 
 async function replaceEventsInCollection(events, collection) {
+  console.log('replaceEventsInCollection()');
   await deleteAllBut(events, collection);
   const batches = batchArray(events, upsertBatchSize);
   for (batch of batches) {
@@ -92,7 +94,7 @@ async function replaceEventsInCollection(events, collection) {
 }
 
 const importEvents = async function() {
-  console.log('IMPORT EVENTS');
+  console.log('importEvents()');
   const db = await setupDatabase();
   const collection = db.collection('events');
   const events = await getAllEvents();
