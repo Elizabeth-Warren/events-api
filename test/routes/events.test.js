@@ -30,9 +30,7 @@ describe('events routes', function() {
     onRequest = router(app);
   });
 
-  after(function() {
-    closeDatabaseConnection();
-  });
+  after(closeDatabaseConnection);
 
   it('returns the latest events in temporal order', function(done) {
     onRequest({

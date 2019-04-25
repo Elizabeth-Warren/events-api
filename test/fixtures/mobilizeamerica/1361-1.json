@@ -1,0 +1,69 @@
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "data": [
+        {
+            "id": 90920,
+            "description": "Elizabeth Warren is returning to Nevada! She will be hosting an organizing event in Las Vegas on Saturday, April 27 as we build our movement for 2020.\n\nDoors open for the event at 5:00 PM and the event will begin at 6:00 PM. This event is free and open to the public, so feel free to bring your friends and family along too. Tickets aren\u2019t required, but an RSVP is strongly encouraged. Admission will be first come, first served.\n\nIf you need ADA accommodations at this event, please let a volunteer or a member of our team know when you arrive. You can also reach out in advance at info@elizabethwarren.com. \n\nThanks, and we hope to see you in Las Vegas!",
+            "timezone": "America/Los_Angeles",
+            "title": "Las Vegas Organizing Event with Elizabeth Warren",
+            "summary": "",
+            "sponsor": {
+                "id": 1361,
+                "name": "Nevada for Warren",
+                "slug": "nevadaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NV",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/nevadaforwarren/",
+                "created_date": 1553030935,
+                "modified_date": 1556032588
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/Screen%20Shot%202019-04-06%20at%203.59.58%20PM_20190419150905853565.png",
+            "timeslots": [
+                {
+                    "id": 540647,
+                    "start_date": 1556409600,
+                    "end_date": 1556420400
+                }
+            ],
+            "location": {
+                "venue": "Bonanza High School",
+                "address_lines": [
+                    "6665 Del Rey Avenue",
+                    ""
+                ],
+                "locality": "Las Vegas",
+                "region": "NV",
+                "postal_code": "89146",
+                "location": {
+                    "latitude": 36.1545496,
+                    "longitude": -115.2371744
+                },
+                "congressional_district": "1",
+                "state_leg_district": "10",
+                "state_senate_district": "3"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1555686699,
+            "modified_date": 1556031791,
+            "browser_url": "https://www.mobilize.us/nevadaforwarren/event/90920/",
+            "high_priority": true,
+            "contact": {
+                "name": "",
+                "email_address": "info@elizabethwarren.com",
+                "phone_number": ""
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        }
+    ],
+    "metadata": {
+        "url_name": "public_organization_events"
+    }
+}

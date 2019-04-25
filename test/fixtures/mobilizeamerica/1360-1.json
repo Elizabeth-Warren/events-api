@@ -1,0 +1,378 @@
+{
+    "count": 7,
+    "next": null,
+    "previous": null,
+    "data": [
+        {
+            "id": 90804,
+            "description": "Meet with our organizing team in Nashua for a conversation around past campaigns and best practices going into the 2020 primary. We can't wait to hear from you!",
+            "timezone": "America/New_York",
+            "title": "Nashua Community Meeting",
+            "summary": "",
+            "sponsor": {
+                "id": 1360,
+                "name": "Warren for New Hampshire",
+                "slug": "warrenfornewhampshire",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NH",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+                "created_date": 1553029480,
+                "modified_date": 1555368723
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/unnamed_20190424203214025867.jpg",
+            "timeslots": [
+                {
+                    "id": 540400,
+                    "start_date": 1556377200,
+                    "end_date": 1556384400
+                }
+            ],
+            "location": {
+                "locality": "Nashua",
+                "region": "NH",
+                "postal_code": "03060",
+                "congressional_district": "2",
+                "state_leg_district": "HILLSBOROUGH COUNTY NO. 33",
+                "state_senate_district": "13"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1555524402,
+            "modified_date": 1556137970,
+            "browser_url": "https://www.mobilize.us/warrenfornewhampshire/event/90804/",
+            "high_priority": false,
+            "contact": {
+                "name": "Lily Welch",
+                "email_address": "lwelch@elizabethwarren.com",
+                "phone_number": "508-680-6879"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 90805,
+            "description": "Meet with our organizing team in Salem for a conversation around past campaigns and best practices going into the 2020 primary. We can't wait to hear from you!",
+            "timezone": "America/New_York",
+            "title": "Salem Community Meeting",
+            "summary": "",
+            "sponsor": {
+                "id": 1360,
+                "name": "Warren for New Hampshire",
+                "slug": "warrenfornewhampshire",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NH",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+                "created_date": 1553029480,
+                "modified_date": 1555368723
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/unnamed_20190424203523844639.jpg",
+            "timeslots": [
+                {
+                    "id": 540401,
+                    "start_date": 1556395200,
+                    "end_date": 1556402400
+                }
+            ],
+            "location": {
+                "locality": "Salem",
+                "region": "NH",
+                "postal_code": "03079",
+                "congressional_district": "2",
+                "state_leg_district": "ROCKINGHAM COUNTY NO. 8",
+                "state_senate_district": "22"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1555524745,
+            "modified_date": 1556138127,
+            "browser_url": "https://www.mobilize.us/warrenfornewhampshire/event/90805/",
+            "high_priority": false,
+            "contact": {
+                "name": "Lily Welch",
+                "email_address": "lwelch@elizabethwarren.com",
+                "phone_number": "508-680-6879"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 90868,
+            "description": "Come join the Elizabeth Warren Campaign's Field Organizing Team in a discussion about our program and how to make it work for your community!\n\nAddress will be sent to you after you RSVP!",
+            "timezone": "America/New_York",
+            "title": "Brentwood Community Meeting",
+            "summary": "",
+            "sponsor": {
+                "id": 1360,
+                "name": "Warren for New Hampshire",
+                "slug": "warrenfornewhampshire",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NH",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+                "created_date": 1553029480,
+                "modified_date": 1555368723
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/645ffe7405be4becadd921d0edece8a7_20190418172726653368.jpg",
+            "timeslots": [
+                {
+                    "id": 540557,
+                    "start_date": 1556748000,
+                    "end_date": 1556757000
+                }
+            ],
+            "location": {
+                "locality": "Brentwood",
+                "region": "NH",
+                "postal_code": "03833",
+                "congressional_district": "1",
+                "state_leg_district": "ROCKINGHAM COUNTY NO. 11",
+                "state_senate_district": "23"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1555608730,
+            "modified_date": 1555608731,
+            "browser_url": "https://www.mobilize.us/warrenfornewhampshire/event/90868/",
+            "high_priority": false,
+            "contact": {
+                "name": "Becca Day",
+                "email_address": "rday@elizabethwarren.com",
+                "phone_number": "6039697878"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91012,
+            "description": "Join our organizing team in Laconia for a community event in which we will host a conversation about your experiences with past campaigns, campaign best practices, and how you think campaigns should work in the community during the 2020 primary. We can't wait to hear from you!",
+            "timezone": "America/New_York",
+            "title": "Laconia Community Meeting",
+            "summary": "",
+            "sponsor": {
+                "id": 1360,
+                "name": "Warren for New Hampshire",
+                "slug": "warrenfornewhampshire",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NH",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+                "created_date": 1553029480,
+                "modified_date": 1555368723
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/Screen%20Shot%202019-04-20%20at%2011.41.40%20AM_20190420154311283173.png",
+            "timeslots": [
+                {
+                    "id": 540858,
+                    "start_date": 1556233200,
+                    "end_date": 1556240400
+                }
+            ],
+            "location": {
+                "locality": "Laconia",
+                "region": "NH",
+                "postal_code": "03246",
+                "congressional_district": "1",
+                "state_leg_district": "BELKNAP COUNTY NO. 3",
+                "state_senate_district": "7"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1555775232,
+            "modified_date": 1556134897,
+            "browser_url": "https://www.mobilize.us/warrenfornewhampshire/event/91012/",
+            "high_priority": false,
+            "contact": {
+                "name": "Tim",
+                "email_address": "tlarose@elizabethwarren.com",
+                "phone_number": "LaRose"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91060,
+            "description": "Join our organizing team in West Lebanon for a community conversation in which we will host a conversation about your experiences with past campaigns, campaign best practices, and how you think campaigns should work in the community during the 2020 primary. We can't wait to hear from you!",
+            "timezone": "America/New_York",
+            "title": "West Lebanon Community Meeting",
+            "summary": "",
+            "sponsor": {
+                "id": 1360,
+                "name": "Warren for New Hampshire",
+                "slug": "warrenfornewhampshire",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NH",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+                "created_date": 1553029480,
+                "modified_date": 1555368723
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/D4mq6O1XsAUdKRD_20190422143044015025.jpg",
+            "timeslots": [
+                {
+                    "id": 540923,
+                    "start_date": 1556384400,
+                    "end_date": 1556389800
+                }
+            ],
+            "location": {
+                "venue": "Home of Ilana Grallert",
+                "address_lines": [
+                    "12 Pinewood Village Road",
+                    ""
+                ],
+                "locality": "W Lebanon",
+                "region": "NH",
+                "postal_code": "03784",
+                "location": {
+                    "latitude": 43.6863131,
+                    "longitude": -72.2947218
+                },
+                "congressional_district": "2",
+                "state_leg_district": "GRAFTON COUNTY NO. 13",
+                "state_senate_district": "5"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1555943568,
+            "modified_date": 1555958726,
+            "browser_url": "https://www.mobilize.us/warrenfornewhampshire/event/91060/",
+            "high_priority": false,
+            "contact": {
+                "name": "Keith Drucker",
+                "email_address": "kdrucker@elizabethwarren.com",
+                "phone_number": "508-801-0380"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91094,
+            "description": "Join our organizing team in Keene for a community conversation in which we will host a conversation about your experiences with past campaigns, campaign best practices, and how you think campaigns should work in the community during the 2020 primary. We can't wait to hear from you!",
+            "timezone": "America/New_York",
+            "title": "Keene Community Meeting",
+            "summary": "",
+            "sponsor": {
+                "id": 1360,
+                "name": "Warren for New Hampshire",
+                "slug": "warrenfornewhampshire",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NH",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+                "created_date": 1553029480,
+                "modified_date": 1555368723
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/D4mq6O1XsAUdKRD_20190422192123423572.jpg",
+            "timeslots": [
+                {
+                    "id": 541039,
+                    "start_date": 1556832600,
+                    "end_date": 1556838000
+                }
+            ],
+            "location": {
+                "venue": "Home of Joann Fenton",
+                "address_lines": [
+                    "16 Bradford Road",
+                    ""
+                ],
+                "locality": "Keene",
+                "region": "NH",
+                "postal_code": "03431",
+                "location": {
+                    "latitude": 42.9305121,
+                    "longitude": -72.3135287
+                },
+                "congressional_district": "2",
+                "state_leg_district": "CHESHIRE COUNTY NO. 8",
+                "state_senate_district": "10"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1555961058,
+            "modified_date": 1555961125,
+            "browser_url": "https://www.mobilize.us/warrenfornewhampshire/event/91094/",
+            "high_priority": false,
+            "contact": {
+                "name": "Amanda Knightly",
+                "email_address": "aknightly@elizabethwarren.com",
+                "phone_number": "860-519-4779"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91196,
+            "description": "Join our organizing team in Concord for a community event in which we will host a conversation about your experiences with past campaigns, campaign best practices, and how you think campaigns should work in the community during the 2020 primary. We can't wait to hear from you!",
+            "timezone": "America/New_York",
+            "title": "Concord Community Event",
+            "summary": "",
+            "sponsor": {
+                "id": 1360,
+                "name": "Warren for New Hampshire",
+                "slug": "warrenfornewhampshire",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "NH",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+                "created_date": 1553029480,
+                "modified_date": 1555368723
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/Screen%20Shot%202019-04-20%20at%2011.41.40%20AM_20190423190425913633.png",
+            "timeslots": [
+                {
+                    "id": 541287,
+                    "start_date": 1556748000,
+                    "end_date": 1556755200
+                }
+            ],
+            "location": {
+                "locality": "Concord",
+                "region": "NH",
+                "postal_code": "03301",
+                "congressional_district": "2",
+                "state_leg_district": "MERRIMACK COUNTY NO. 15",
+                "state_senate_district": "15"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556046465,
+            "modified_date": 1556134914,
+            "browser_url": "https://www.mobilize.us/warrenfornewhampshire/event/91196/",
+            "high_priority": false,
+            "contact": {
+                "name": "Shannon Morrell",
+                "email_address": "smorrell@elizabethwarren.com",
+                "phone_number": "+1 (508) 971-6790\u202c"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        }
+    ],
+    "metadata": {
+        "url_name": "public_organization_events"
+    }
+}

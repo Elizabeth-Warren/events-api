@@ -45,7 +45,6 @@ module.exports = (db) => {
    * @return      {Array<Object>}
    */
   async function _getUpcomingEvents() {
-    console.log('new Date: ', new Date());
     const eventsCursor = await collection.find({
       startTime: {
         $gte : new Date(),

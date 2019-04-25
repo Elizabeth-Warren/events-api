@@ -31,9 +31,10 @@ async function getPromotedOrganizations() {
 }
 
 async function getEventsForOrganization(organizationId) {
-  results = []
+  let results = []
   let nextUrl = organizationEventsUrl(organizationId);
   while (nextUrl) {
+    console.log(nextUrl);
     body = await mobilizeAmericaRequest(nextUrl);
     nextUrl = body.next;
     results.push(...body.data);
@@ -42,7 +43,6 @@ async function getEventsForOrganization(organizationId) {
 }
 
 async function getAllEvents() {
-  console.log('getAllEvents()');
   const promotedOrganizationIds = await getPromotedOrganizations();
   return Promise.all(
     promotedOrganizationIds.map(
@@ -53,13 +53,12 @@ async function getAllEvents() {
     for (let organizationEvents of nestedEvents) {
       flatEvents.push(...organizationEvents);
     }
-    console.log('got ', flatEvents.length, ' responses across ', promotedOrganizationIds.length, ' orgs.');
+    console.log('There are', flatEvents.length, 'events across', promotedOrganizationIds.length, 'orgs.');
     return flatEvents;
   });
 }
 
 async function deleteAllBut(events, collection) {
-  console.log("delete all but");
   const eventIds = events.map(({ mobilizeId }) => mobilizeId);
   return collection.deleteMany({
     mobilizeId: {
@@ -77,7 +76,6 @@ function batchArray(array, batchSize) {
 }
 
 async function upsertBatch(batch, collection) {
-  console.log('upsertBatch()');
   const bulk = await collection.initializeUnorderedBulkOp();
   for (let e of batch) {
     await bulk.find({ mobilizeId: e.mobilizeId }).upsert().updateOne(e);
@@ -86,7 +84,6 @@ async function upsertBatch(batch, collection) {
 }
 
 async function replaceEventsInCollection(documents, collection) {
-  console.log('replaceEventsInCollection()');
   await deleteAllBut(documents, collection);
   const batches = batchArray(documents, upsertBatchSize);
   for (batch of batches) {
@@ -95,12 +92,11 @@ async function replaceEventsInCollection(documents, collection) {
 }
 
 const importEvents = async function() {
-  console.log('importEvents()');
+  console.log('Starting importEvents()');
   const db = await setupDatabase();
-  const collection = db.collection('events');
   const events = await getAllEvents();
   const documents = events.map(mobilizeAmericaToMongoDocument);
-  console.log('after await getAllEvents()');
-  return replaceEventsInCollection(documents, collection);
+  return replaceEventsInCollection(documents, db.collection('events'));
 }
+
 module.exports = importEvents;
