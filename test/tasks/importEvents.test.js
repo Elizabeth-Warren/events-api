@@ -20,13 +20,18 @@ describe('importEvents task', function() {
     });
   });
 
-  after(function() {
+  after(async function() {
     console.log("closeDatabaseConnection()");
-    // TODO URRRRR what's going on -- why 
-    closeDatabaseConnection();
+    return closeDatabaseConnection();
   });
 
-  it('imports events', async () => {
+  const wait = ms => new Promise(resolve => {
+      console.log('about to wait 5s');
+      setTimeout(() => { console.log('done waiting 5s'); resolve() }, ms)
+    });
+
+  it('imports events', async function() {
+    await wait(5000);
     await importEvents();
     const collection = testDb.collection('events');
     const eventsCursor = await collection.find().sort( { startTime: 1 } );
