@@ -1,5 +1,6 @@
 const https = require('https');
 const request = require('request-promise-native');
+const { mobilizeAmericaToMongoDocument } = require('../transformers/event');
 const { setupDatabase } = require('../utils/connectToDatabase');
 
 function promotedOrganizationsUrl() {
@@ -84,10 +85,10 @@ async function upsertBatch(batch, collection) {
   return bulk.execute();
 }
 
-async function replaceEventsInCollection(events, collection) {
+async function replaceEventsInCollection(documents, collection) {
   console.log('replaceEventsInCollection()');
-  await deleteAllBut(events, collection);
-  const batches = batchArray(events, upsertBatchSize);
+  await deleteAllBut(documents, collection);
+  const batches = batchArray(documents, upsertBatchSize);
   for (batch of batches) {
     await upsertBatch(batch, collection);
   }
@@ -98,7 +99,8 @@ const importEvents = async function() {
   const db = await setupDatabase();
   const collection = db.collection('events');
   const events = await getAllEvents();
+  const documents = events.map(mobilizeAmericaToMongoDocument);
   console.log('after await getAllEvents()');
-  return replaceEventsInCollection(events, collection);
+  return replaceEventsInCollection(documents, collection);
 }
 module.exports = importEvents;

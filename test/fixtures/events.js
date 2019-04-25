@@ -6,7 +6,6 @@ module.exports = [{
       'es-MX': 'Waukee for Warren Coffee Hours',
     },
     published: true,
-    date: new Date(1556114400 * 1000),
     startTime: new Date(1556114400 * 1000),  // April 24, 2019 10:00 AM EDT
     endTime: new Date(1556125200 * 1000),
     timezone: 'America/Chicago',
@@ -25,10 +24,10 @@ module.exports = [{
       'es-MX': 'Tipton Meet & Greet with Elizabeth Warren',
     },
     published: true,
-    date: new Date(1556297100 * 1000),
     startTime: new Date(1556297100 * 1000),  // Friday, April 26, 2019 12:45 EDT
     endTime: new Date(1556300700 * 1000),
     timezone: 'America/Chicago',
+    venue: 'Tipton Family Restaurant',
     publicAddress: '101 E 4th St., Tipton, IA 52772',
     city: 'Tipton',
     state: 'IA',
@@ -44,7 +43,6 @@ module.exports = [{
       'es-MX': 'Salem Community Meeting',
     },
     published: true,
-    date: new Date(1556395200 * 1000),
     startTime: new Date(1556395200 * 1000),  // Saturday, April 27, 2019 4:00 PM EDT
     endTime: new Date(1556402400 * 1000),
     timezone: 'America/New_York',
@@ -63,7 +61,6 @@ module.exports = [{
       'es-MX': 'Win with Warren Party MetroWest',
     },
     published: true,
-    date: new Date(1556319600 * 1000),
     startTime: new Date(1556319600 * 1000),  // April 26, 2019 7:00 PM EDT
     endTime: new Date(1556326800 * 1000),
     timezone: 'America/New_York',
@@ -82,7 +79,6 @@ module.exports = [{
       'es-MX': 'Win with Warren Party Roxbury',
     },
     published: true,
-    date: new Date(1557077400 * 1000),
     startTime: new Date(1557077400 * 1000),  // May 5, 2019 1:30 PM EDT
     endTime: new Date(1557086400 * 1000),
     timezone: 'America/New_York',

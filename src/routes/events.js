@@ -1,6 +1,6 @@
 const { HttpError } = require('@ewarren/serverless-routing');
 const EventModel = require('../models/Event');
-const transformEvents = require('../transformers/event');
+const { mongoDocumentToResponse } = require('../transformers/event');
 const { setupDatabase } = require('../utils/connectToDatabase');
 
 module.exports = (app) => {
@@ -14,7 +14,7 @@ module.exports = (app) => {
       return failed(upcomingEvents);
     }
 
-    return success({ events: transformEvents(upcomingEvents) });
+    return success({ events: upcomingEvents.map(mongoDocumentToResponse) });
   });
 
   app.get('/nearby', async ({ success, failed, event }) => {
@@ -41,6 +41,6 @@ module.exports = (app) => {
       return failed(nearbyEvents);
     }
 
-    return success({ events: transformEvents(nearbyEvents) });
+    return success({ events: nearbyEvents.map(mongoDocumentToResponse) });
   });
 };
