@@ -112,7 +112,6 @@ describe('importEvents task', function() {
 
     const eventsCursor = await collection.find().sort( { startTime: 1 } );
     const allEvents = await eventsCursor.toArray();
-    console.log('Now there are', allEvents.length, 'events in mongodb');
-    assert.isAbove(allEvents.length, 0);
+    assert.equal(allEvents.length, 71);
   });
 });
