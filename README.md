@@ -2,9 +2,9 @@
 
 Lookup nearby campaign events.
 
-**Prod**: https://api.elizabethwarren.codes/prod-events
+**Prod**: https://api.elizabethwarren.codes/prod-events-v2
 
-**Staging**: https://api.elizabethwarren.codes/staging-events
+**Staging**: https://api.elizabethwarren.codes/staging-events-v2
 
 ## Local Development
 

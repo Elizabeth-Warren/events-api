@@ -25,7 +25,7 @@ describe('events routes', function() {
       });
     });
 
-    const app = framework({ basePath: '/:stage-events' });
+    const app = framework({ basePath: '/:stage-events-v2' });
     eventsRoutes(app);
     onRequest = router(app);
   });
@@ -35,7 +35,7 @@ describe('events routes', function() {
   it('returns the latest events in temporal order', function(done) {
     onRequest({
       httpMethod: 'get',
-      path: '/prod-events/upcoming',
+      path: '/prod-events-v2/upcoming',
       headers: { 'Content-Type': 'application/json' },
     }, {}, (err, response) => {
       assert.equal(response.statusCode, 200);
@@ -54,7 +54,7 @@ describe('events routes', function() {
   it('returns nearby events in proximity order', function(done) {
     onRequest({
       httpMethod: 'get',
-      path: '/prod-events/nearby',
+      path: '/prod-events-v2/nearby',
       queryStringParameters: {
         lat: '42.382393',
         lon: '-71.077814',

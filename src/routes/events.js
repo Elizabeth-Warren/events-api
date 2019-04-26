@@ -4,7 +4,7 @@ const { mongoDocumentToResponse } = require('../transformers/event');
 const { setupDatabase } = require('../utils/connectToDatabase');
 
 module.exports = (app) => {
-  app.get('/upcoming', async ({ success, failed, event }) => {
+  app.get('/upcoming', async ({ success, failed, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
     const db = await setupDatabase();
     const Event = EventModel(db);
@@ -17,7 +17,7 @@ module.exports = (app) => {
     return success({ events: upcomingEvents.map(mongoDocumentToResponse) });
   });
 
-  app.get('/nearby', async ({ success, failed, event }) => {
+  app.get('/nearby', async ({ success, failed, event, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
     const db = await setupDatabase();
     const { queryStringParameters } = event;
