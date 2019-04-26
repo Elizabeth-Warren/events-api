@@ -28,7 +28,7 @@ plugins:
 
 functions:
   api:
-    handler: src/handler.router
+    handler: src/handlerApi.router
     events:
       - http:
           path: /
@@ -38,3 +38,7 @@ functions:
           path: /{proxy+}
           method: any
           cors: true
+  importEvents:
+    handler: src/handlerImportEvents.run
+    events:
+      schedule: rate(1 hour)
