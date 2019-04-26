@@ -4,9 +4,11 @@ custom:
   stage: ${opt:stage, 'dev'}
   mobilizeAmerica:
     dev: ${ssm:MOBILIZE_AMERICA_DEV}
+    staging: ${ssm:MOBILIZE_AMERICA_PROD}
     prod: ${ssm:MOBILIZE_AMERICA_PROD}
   mongo:
     dev: ${ssm:TOOLS_SHARED_MONGO_DEV}
+    staging: ${ssm:TOOLS_SHARED_MONGO_PROD}
     prod: ${ssm:TOOLS_SHARED_MONGO_PROD}
   customDomain:
     domainName: api.elizabethwarren.codes
@@ -41,4 +43,4 @@ functions:
   importEvents:
     handler: src/handlerImportEvents.run
     events:
-      schedule: rate(1 hour)
+      - schedule: rate(5 minutes)
