@@ -6,8 +6,8 @@ custom:
     dev: ${ssm:MOBILIZE_AMERICA_DEV}
     prod: ${ssm:MOBILIZE_AMERICA_PROD}
   mongo:
-    dev: ${ssm:SLACK_FOR_SMS_MONGO_DEV}
-    prod: ${ssm:SLACK_FOR_SMS_MONGO_PROD}
+    dev: ${ssm:TOOLS_SHARED_MONGO_DEV}
+    prod: ${ssm:TOOLS_SHARED_MONGO_PROD}
   customDomain:
     domainName: api.elizabethwarren.codes
     basePath: ${self:custom.stage}-events-v2

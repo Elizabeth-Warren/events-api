@@ -34,7 +34,6 @@ async function getEventsForOrganization(organizationId) {
   let results = []
   let nextUrl = organizationEventsUrl(organizationId);
   while (nextUrl) {
-    console.log(nextUrl);
     body = await mobilizeAmericaRequest(nextUrl);
     nextUrl = body.next;
     results.push(...body.data);
@@ -83,6 +82,13 @@ async function upsertBatch(batch, collection) {
   return bulk.execute();
 }
 
+/**
+ * Replaces all Mobilize America event documents in 'collection' with those in 'documents'.
+ *
+ * First deletes all documents in the collection which have a mobilizeId and
+ * whose mobilizeId is not in 'documents'. Then upserts each document in
+ * 'documents' based on its mobilizeId.
+ */
 async function replaceEventsInCollection(documents, collection) {
   await deleteAllBut(documents, collection);
   const batches = batchArray(documents, upsertBatchSize);
@@ -94,9 +100,12 @@ async function replaceEventsInCollection(documents, collection) {
 const importEvents = async function() {
   console.log('Starting importEvents()');
   const db = await setupDatabase();
+  console.log('Fetching events from Mobilize America...');
   const events = await getAllEvents();
   const documents = events.map(mobilizeAmericaToMongoDocument);
-  return replaceEventsInCollection(documents, db.collection('events'));
+  console.log('Upserting events into mongodb...');
+  await replaceEventsInCollection(documents, db.collection('events'));
+  console.log('Done. importEvents() finished.');
 }
 
 module.exports = importEvents;

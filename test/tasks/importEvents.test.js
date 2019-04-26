@@ -6,6 +6,7 @@ const {
 } = require('../../src/utils/connectToDatabase');
 const DatabaseCleaner = require('database-cleaner');
 const nock = require('nock');
+const MockDate = require('mockdate');
 const importEvents = require('../../src/tasks/importEvents');
 const testEvents = require('../fixtures/events');
 
@@ -98,6 +99,7 @@ describe('importEvents task', function() {
   }
 
   it('imports events', async function() {
+    MockDate.set(new Date('2019-04-22'));
     const collection = await testDb.collection('events');
     await populatePreexistingEvents(collection);
     await mockMobilizeAmericaRequests();
@@ -112,6 +114,6 @@ describe('importEvents task', function() {
 
     const eventsCursor = await collection.find().sort( { startTime: 1 } );
     const allEvents = await eventsCursor.toArray();
-    assert.equal(allEvents.length, 71);
+    assert.equal(allEvents.length, 68);
   });
 });
