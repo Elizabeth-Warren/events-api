@@ -27,10 +27,11 @@ provider:
 
 plugins:
   - serverless-domain-manager
+  - serverless-offline
 
 functions:
   api:
-    handler: src/handlerApi.router
+    handler: src/handler.router
     events:
       - http:
           path: /
@@ -41,6 +42,10 @@ functions:
           method: any
           cors: true
   importEvents:
-    handler: src/handlerImportEvents.run
+    handler: src/handler.importEvents
     events:
       - schedule: rate(5 minutes)
+
+package:
+  exclude:
+    - data/**
