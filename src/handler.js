@@ -1,6 +1,6 @@
 const { framework, router } = require('@ewarren/serverless-routing');
 const AWS = require('aws-sdk');
-const importEvents = require('tasks/importEvents');
+const importEvents = require('./tasks/importEvents');
 
 const app = framework({ basePath: '/:stage-events' });
 
