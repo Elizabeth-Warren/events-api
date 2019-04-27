@@ -6,40 +6,30 @@ const mongodb_uri = process.env.MONGODB_URI || 'mongodb://mongo:27017';
 let cachedClient = null;
 let cachedDb = null;
 
-const setupDatabase = () => {
-  return new Promise((resolve, reject) => {
-    connectToDatabase().then(initDatabase().then(resolve, reject));
-  });
+const setupDatabase = async () => {
+  await connectToDatabase();
+  await initDatabase();
+  return cachedDb;
 }
 
-const connectToDatabase = () => {
-  return new Promise((resolve, reject) => {
-    if (cachedDb && cachedDb.serverConfig.isConnected()) {
-      return resolve(cachedDb);
-    }
+const connectToDatabase = async () => {
+  if (cachedDb && cachedDb.serverConfig.isConnected()) {
+    return cachedDb;
+  }
 
-    cachedClient = new mongodb.MongoClient(
-      mongodb_uri,
-      { useNewUrlParser: true },
-    );
+  cachedClient = new mongodb.MongoClient(
+    mongodb_uri,
+    { useNewUrlParser: true },
+  );
 
-    cachedClient.connect((error) => {
-      if (error) {
-        console.error(error);
-        return reject();
-      }
-
-      cachedDb = cachedClient.db('application');
-      resolve(cachedDb);
-    });
-  });
+  await cachedClient.connect();
+  cachedDb = await cachedClient.db('application');
+  return cachedDb;
 }
 
-const initDatabase = () => {
-  return new Promise((resolve, reject) => {
-    const Event = EventModel(cachedDb);
-    Event.init().then(() => resolve(cachedDb));
-  });
+const initDatabase = async () => {
+  const Event = EventModel(cachedDb);
+  return Event.init();
 }
 
 const closeDatabaseConnection = () => {

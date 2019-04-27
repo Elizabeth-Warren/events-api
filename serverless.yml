@@ -7,9 +7,9 @@ custom:
     staging: ${ssm:MOBILIZE_AMERICA_PROD}
     prod: ${ssm:MOBILIZE_AMERICA_PROD}
   mongo:
-    dev: ${ssm:TOOLS_SHARED_MONGO_DEV}
-    staging: ${ssm:TOOLS_SHARED_MONGO_PROD}
-    prod: ${ssm:TOOLS_SHARED_MONGO_PROD}
+    dev: ${ssm:TOOLS_SHARED_MONGO_DEV~true}
+    staging: ${ssm:TOOLS_SHARED_MONGO_PROD~true}
+    prod: ${ssm:TOOLS_SHARED_MONGO_PROD~true}
   customDomain:
     domainName: api.elizabethwarren.codes
     basePath: ${self:custom.stage}-events-v2

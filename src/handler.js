@@ -8,10 +8,7 @@ require('./routes/events')(app);
 
 module.exports = {
   router: router(app),
-  importEvents: (event, context, callback) => {
-    importEvents().then(
-      () => callback(null, { message: 'Finished importing events.' }),
-      reason => callback(true, reason)
-    );
+  importEvents: async () => {
+    return importEvents();
   }
 };
