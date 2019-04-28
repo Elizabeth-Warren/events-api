@@ -3,8 +3,10 @@ const request = require('request-promise-native');
 const { mobilizeAmericaToMongoDocument } = require('../transformers/event');
 const { setupDatabase } = require('../utils/connectToDatabase');
 
+const topLevelOrganizationId = 1316;
+
 function promotedOrganizationsUrl() {
-  return 'https://api.mobilize.us/v1/organizations/1316/promoted_organizations';
+  return `https://api.mobilize.us/v1/organizations/${topLevelOrganizationId}/promoted_organizations`;
 }
 
 function organizationEventsUrl(organizationId) {
@@ -43,6 +45,13 @@ async function getEventsForOrganization(organizationId) {
 
 async function getAllEvents() {
   const promotedOrganizationIds = await getPromotedOrganizations();
+  const alreadyAddedEvents = new Set();
+
+  // We'll get all promoted organizations' events, then also fetch all of the
+  // top-level organization's events. If an event appears in both, the promoted
+  // organization's event will take precedence.
+  promotedOrganizationIds.push(topLevelOrganizationId);
+
   return Promise.all(
     promotedOrganizationIds.map(
       organizationId => getEventsForOrganization(organizationId)
@@ -50,7 +59,12 @@ async function getAllEvents() {
   ).then(nestedEvents => {
     let flatEvents = [];
     for (let organizationEvents of nestedEvents) {
-      flatEvents.push(...organizationEvents);
+      for (let organizationEvent of organizationEvents) {
+        if (!alreadyAddedEvents.has(organizationEvent.id)) {
+          flatEvents.push(organizationEvent);
+          alreadyAddedEvents.add(organizationEvent.id);
+        }
+      }
     }
     console.log('There are', flatEvents.length, 'events across', promotedOrganizationIds.length, 'orgs.');
     return flatEvents;

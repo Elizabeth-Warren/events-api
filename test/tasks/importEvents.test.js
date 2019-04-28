@@ -47,7 +47,7 @@ describe('importEvents task', function() {
         rsvpCtaOverride: null,
         highPriority: false,
       },
-      // This event will be updated with a new title.
+      // This event will be updated with a new title and to be high priority.
       {
         mobilizeId: 909804,
         loc: { type: 'Point', coordinates: [-91.1281814, 41.7687331] },
@@ -66,7 +66,7 @@ describe('importEvents task', function() {
         zipcode: '52772',
         rsvpLink: 'https://events.elizabethwarren.com/event/90980/',
         rsvpCtaOverride: null,
-        highPriority: true,
+        highPriority: false,
       }
     ];
 
@@ -96,6 +96,24 @@ describe('importEvents task', function() {
     nock(mobilizeAmericaBase)
       .get('/v1/organizations/1360/events?timeslot_start=gte_now')
       .reply(200, require('../fixtures/mobilizeamerica/1360-1.json'));
+    nock(mobilizeAmericaBase)
+      .get('/v1/organizations/1316/events?timeslot_start=gte_now')
+      .reply(200, require('../fixtures/mobilizeamerica/1316-1.json'));
+    nock(mobilizeAmericaBase)
+      .get('/v1/organizations/1316/events?page=2&timeslot_start=gte_now')
+      .reply(200, require('../fixtures/mobilizeamerica/1316-2.json'));
+    nock(mobilizeAmericaBase)
+      .get('/v1/organizations/1316/events?page=3&timeslot_start=gte_now')
+      .reply(200, require('../fixtures/mobilizeamerica/1316-3.json'));
+    nock(mobilizeAmericaBase)
+      .get('/v1/organizations/1316/events?page=4&timeslot_start=gte_now')
+      .reply(200, require('../fixtures/mobilizeamerica/1316-4.json'));
+    nock(mobilizeAmericaBase)
+      .get('/v1/organizations/1316/events?page=5&timeslot_start=gte_now')
+      .reply(200, require('../fixtures/mobilizeamerica/1316-5.json'));
+    nock(mobilizeAmericaBase)
+      .get('/v1/organizations/1316/events?page=6&timeslot_start=gte_now')
+      .reply(200, require('../fixtures/mobilizeamerica/1316-6.json'));
   }
 
   it('imports events', async function() {
@@ -108,12 +126,17 @@ describe('importEvents task', function() {
 
     const updatedEvent = await collection.findOne({ mobilizeId: 90980 });
     assert.equal(updatedEvent.title['en-US'], 'Tipton Meet & Greet with Elizabeth Warren');
+    assert.equal(updatedEvent.title['en-US'], 'Tipton Meet & Greet with Elizabeth Warren');
+    // This event is high priority in the Iowa Mobilize America organization,
+    // but not in the top-level organization. It should be pulled down as high
+    // priority because the state organization setting takes precedence.
+    assert.equal(updatedEvent.highPriority, true);
 
     obsoleteEventExists = await collection.count({ mobilizeId: 1234 })
     assert.equal(obsoleteEventExists, 0);
 
     const eventsCursor = await collection.find().sort( { startTime: 1 } );
     const allEvents = await eventsCursor.toArray();
-    assert.equal(allEvents.length, 68);
+    assert.equal(allEvents.length, 159);
   });
 });

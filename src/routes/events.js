@@ -1,12 +1,12 @@
 const { HttpError } = require('@ewarren/serverless-routing');
 const EventModel = require('../models/Event');
 const { mongoDocumentToResponse } = require('../transformers/event');
-const { setupDatabase } = require('../utils/connectToDatabase');
+const { connectToDatabase } = require('../utils/connectToDatabase');
 
 module.exports = (app) => {
   app.get('/upcoming', async ({ success, failed, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    const db = await setupDatabase();
+    const db = await connectToDatabase();
     const Event = EventModel(db);
     const upcomingEvents = await Event.getUpcomingEvents();
 
@@ -19,7 +19,7 @@ module.exports = (app) => {
 
   app.get('/nearby', async ({ success, failed, event, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    const db = await setupDatabase();
+    const db = await connectToDatabase();
     const { queryStringParameters } = event;
 
     const {

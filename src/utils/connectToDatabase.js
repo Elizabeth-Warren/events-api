@@ -6,12 +6,6 @@ const mongodb_uri = process.env.MONGODB_URI || 'mongodb://mongo:27017';
 let cachedClient = null;
 let cachedDb = null;
 
-const setupDatabase = async () => {
-  await connectToDatabase();
-  await initDatabase();
-  return cachedDb;
-}
-
 const connectToDatabase = async () => {
   if (cachedDb && cachedDb.serverConfig.isConnected()) {
     return cachedDb;
@@ -30,6 +24,12 @@ const connectToDatabase = async () => {
 const initDatabase = async () => {
   const Event = EventModel(cachedDb);
   return Event.init();
+}
+
+const setupDatabase = async () => {
+  await connectToDatabase();
+  await initDatabase();
+  return cachedDb;
 }
 
 const closeDatabaseConnection = () => {
