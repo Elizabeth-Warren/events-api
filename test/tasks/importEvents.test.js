@@ -127,6 +127,12 @@ describe('importEvents task', function() {
     const updatedEvent = await collection.findOne({ mobilizeId: 90980 });
     assert.equal(updatedEvent.title['en-US'], 'Tipton Meet & Greet with Elizabeth Warren');
     assert.equal(updatedEvent.title['en-US'], 'Tipton Meet & Greet with Elizabeth Warren');
+    assert.equal(updatedEvent.publicAddress, '101 E 4th St.');
+    assert.equal(updatedEvent.venue, 'Tipton Family Restaurant');
+    assert.equal(updatedEvent.city, 'Tipton');
+    assert.equal(updatedEvent.state, 'IA');
+    assert.equal(updatedEvent.zipcode, '52772');
+    assert.equal(updatedEvent.rsvpLink, 'https://events.elizabethwarren.com/event/90980/');
     // This event is high priority in the Iowa Mobilize America organization,
     // but not in the top-level organization. It should be pulled down as high
     // priority because the state organization setting takes precedence.

@@ -22,6 +22,7 @@ function mongoDocumentToResponse({
   loc,
   latitude,
   longitude,
+  highPriority,
   rsvpLink,
   rsvpCtaOverride,
 }) {
@@ -38,18 +39,11 @@ function mongoDocumentToResponse({
     zipcode,
     longitude: loc ? loc.coordinates[0] : null,
     latitude: loc ? loc.coordinates[1] : null,
+    highPriority,
     rsvpLink,
     rsvpCtaOverride,
   };
 };
-
-function publicLocation(l) {
-  return [
-    l.address_lines ? l.address_lines[0] : '',
-    l.locality,
-    `${l.region} ${l.postal_code}`
-  ].filter(Boolean).join(', ');
-}
 
 function mobilizeAmericaToMongoDocument({
   id,
@@ -78,11 +72,11 @@ function mobilizeAmericaToMongoDocument({
     endTime: new Date(timeslots[0].end_date * 1000),
     timezone,
     venue: location.venue,
-    publicAddress: publicLocation(location),
+    publicAddress: location.address_lines ? location.address_lines[0] : '',
     city: location.locality,
     state: location.region,
     zipcode: location.postal_code,
-    rsvpLink: browser_url,
+    rsvpLink: browser_url.replace(new RegExp('www.mobilize.us/[^/]+'), 'events.elizabethwarren.com'),
     rsvpCtaOverride: null,
     highPriority: high_priority,
   };
