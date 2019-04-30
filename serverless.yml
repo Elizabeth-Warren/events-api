@@ -2,28 +2,32 @@ frameworkVersion: ">=1.0.0 <2.0.0"
 
 custom:
   stage: ${opt:stage, 'dev'}
+  mobilizeAmerica:
+    dev: ${ssm:MOBILIZE_AMERICA_DEV}
+    staging: ${ssm:MOBILIZE_AMERICA_PROD}
+    prod: ${ssm:MOBILIZE_AMERICA_PROD}
+  mongo:
+    dev: ${ssm:TOOLS_SHARED_MONGO_DEV~true}
+    staging: ${ssm:TOOLS_SHARED_MONGO_PROD~true}
+    prod: ${ssm:TOOLS_SHARED_MONGO_PROD~true}
   customDomain:
     domainName: api.elizabethwarren.codes
-    basePath: ${self:custom.stage}-events
+    basePath: ${self:custom.stage}-events-v2
     stage: ${self:custom.stage}
     createRoute53Record: true
 
-service: events-api
+service: events-api-v2
 
 provider:
   name: aws
   runtime: nodejs8.10
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - s3:GetObject
-      Resource: "*"
   environment:
-    EVENTS_BUCKET: 'ew-events'
-    EVENTS_FILE: 'ew_events_final-events'
+    MONGODB_URI: ${self:custom.mongo.${self:custom.stage}}
+    MOBILIZE_AMERICA_API_KEY: ${self:custom.mobilizeAmerica.${self:custom.stage}}
 
 plugins:
   - serverless-domain-manager
+  - serverless-offline
 
 functions:
   api:
@@ -37,3 +41,11 @@ functions:
           path: /{proxy+}
           method: any
           cors: true
+  importEvents:
+    handler: src/handler.importEvents
+    events:
+      - schedule: rate(5 minutes)
+
+package:
+  exclude:
+    - data/**

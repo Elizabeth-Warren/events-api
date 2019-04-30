@@ -1,0 +1,1791 @@
+{
+    "count": 150,
+    "next": null,
+    "previous": "https://api.mobilize.us/v1/organizations/1316/events?page=5&timeslot_start=gte_now",
+    "data": [
+        {
+            "id": 91294,
+            "description": "If you have any accessibility needs, please let Grace know by emailing gsmith@elizabethwarren.com or calling/texting (515) 200-2142 so that we can make sure the event will be accessible and comfortable for you.\n\nJoin us as we celebrate Hike Like a Girl weekend with our Hike for Warren event as we show our support for Elizabeth and the big, structural change she\u2019s fighting for in Iowa.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Hike for Warren",
+            "summary": "Dream big, fight hard.",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "",
+            "timeslots": [
+                {
+                    "id": 541935,
+                    "start_date": 1557086400,
+                    "end_date": 1557093600
+                }
+            ],
+            "location": {
+                "venue": "Margo Frankel Woods State Park",
+                "address_lines": [
+                    "6245 NW 2nd Street",
+                    ""
+                ],
+                "locality": "Des Moines",
+                "region": "IA",
+                "postal_code": "50313",
+                "location": {
+                    "latitude": 41.6728922,
+                    "longitude": -93.6202598
+                },
+                "congressional_district": "3",
+                "state_leg_district": "38",
+                "state_senate_district": "19"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556134849,
+            "modified_date": 1556134850,
+            "browser_url": "https://events.elizabethwarren.com/event/91294/",
+            "high_priority": false,
+            "contact": {
+                "name": "Grace Smith",
+                "email_address": "gsmith@elizabethwarren.com",
+                "phone_number": "(515) 200-2142"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91297,
+            "description": "Our team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nJoin us at Adam's Street Espresso to talk with your neighbors about the big, structural change that Elizabeth is fighting for in Iowa. Bring a friend, and we\u2019ll see you there! Thanks for being a part of our team.\n\n*Elizabeth Warren will not be at this event",
+            "timezone": "America/Chicago",
+            "title": "Creston Coffee Hours",
+            "summary": "",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "",
+            "timeslots": [
+                {
+                    "id": 541969,
+                    "start_date": 1556373600,
+                    "end_date": 1556380800
+                },
+                {
+                    "id": 541970,
+                    "start_date": 1557583200,
+                    "end_date": 1557590400
+                },
+                {
+                    "id": 541971,
+                    "start_date": 1558792800,
+                    "end_date": 1558800000
+                },
+                {
+                    "id": 541972,
+                    "start_date": 1560002400,
+                    "end_date": 1560009600
+                }
+            ],
+            "location": {
+                "venue": "Adam's Street Espresso",
+                "address_lines": [
+                    "213 W Adams St",
+                    ""
+                ],
+                "locality": "Creston",
+                "region": "IA",
+                "postal_code": "50801",
+                "location": {
+                    "latitude": 41.0575761,
+                    "longitude": -94.3633177
+                },
+                "congressional_district": "3",
+                "state_leg_district": "21",
+                "state_senate_district": "11"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556135545,
+            "modified_date": 1556135547,
+            "browser_url": "https://events.elizabethwarren.com/event/91297/",
+            "high_priority": false,
+            "contact": {
+                "name": "",
+                "email_address": "ckinsman@elizabethwarren.com",
+                "phone_number": ""
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91321,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering at Old Crow Smokehouse in River North to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. \n\nWe'll have lots of information on how to get involved with the campaign, including opportunities to support the campaign in Iowa. \n\nNo donation is required to attend, and the campaign is not asking for one -- but Thomas Day, one of the organizers, is asking all attendees to support the campaign with a few bucks. Senator Warren's campaign is not accepting any money at all from PACs or lobbyists, so support from regular folks like you helps a great deal. Please consider a donation to the Warren for President campaign, and even better, set it to automatically renew each month!\n\nPlease donate here: elizabethwarren.com/partydonate",
+            "timezone": "America/Chicago",
+            "title": "Win with Warren Chicago: Summer launch party",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_7_20190315170904567827.jpg",
+            "timeslots": [
+                {
+                    "id": 542000,
+                    "start_date": 1558564200,
+                    "end_date": 1558569600
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "149 W Kinzie St",
+                    ""
+                ],
+                "locality": "Chicago",
+                "region": "IL",
+                "postal_code": "60654",
+                "location": {
+                    "latitude": 41.8888636,
+                    "longitude": -87.633021
+                },
+                "congressional_district": "7",
+                "state_leg_district": "5",
+                "state_senate_district": "3"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556154697,
+            "modified_date": 1556292848,
+            "browser_url": "https://events.elizabethwarren.com/event/91321/",
+            "high_priority": false,
+            "contact": {
+                "name": "Thomas Day",
+                "email_address": "tld168@uchicago.edu",
+                "phone_number": "3128023732"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91328,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. Come learn how you can get involved with Team Warren!\r\n\r\nSnacks & drinks will be provided so please RSVP so we know you can make it. All are welcome at this organizing event.",
+            "timezone": "America/New_York",
+            "title": "Win with Warren Party Pisagh Forest",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_5_20190315170832345258.jpg",
+            "timeslots": [
+                {
+                    "id": 542007,
+                    "start_date": 1557082800,
+                    "end_date": 1557090000
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "80 Big Rock Rd",
+                    ""
+                ],
+                "locality": "Pisgah Forest",
+                "region": "NC",
+                "postal_code": "28768",
+                "location": {
+                    "latitude": 35.2118309,
+                    "longitude": -82.708078
+                },
+                "congressional_district": "11",
+                "state_leg_district": "113",
+                "state_senate_district": "48"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556161149,
+            "modified_date": 1556216767,
+            "browser_url": "https://events.elizabethwarren.com/event/91328/",
+            "high_priority": false,
+            "contact": {
+                "name": "BJ Winchester",
+                "email_address": "bjwinchester@hotmail.com",
+                "phone_number": "9047426668"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91330,
+            "description": "Day two of our Elizabeth Warren blitz in Nashville, TN @ the NFL draft! \ud83c\udfc8, country \ud83c\udfb6 and Elizabeth Warren all at the same time! What's not to \ud83d\udc98? Wear your favorite Elizabeth \ud83d\udc55 and Warren pins and be prepared to engage with football fans from across the country! Share all of her plans with those with inquiring minds! We can sign up supporters by having them text FIGHT to 24477.\n\nDierks Bentley will be performing post draft on Nashville's biggest downtown stage!  Who doesn't \ud83d\udc98 a free concert?!\n\nRSVP please so we can connect via text.",
+            "timezone": "America/Chicago",
+            "title": "Win with Warren Nashville NFL Draft Blitz!",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_1_20190315171049960099.jpg",
+            "timeslots": [
+                {
+                    "id": 542009,
+                    "start_date": 1556370000,
+                    "end_date": 1556413200
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "",
+                    ""
+                ],
+                "locality": "Nashville",
+                "region": "TN",
+                "postal_code": "37201",
+                "location": {
+                    "latitude": 36.1724885,
+                    "longitude": -86.7805961
+                },
+                "congressional_district": null,
+                "state_leg_district": null,
+                "state_senate_district": null
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556185742,
+            "modified_date": 1556413201,
+            "browser_url": "https://events.elizabethwarren.com/event/91330/",
+            "high_priority": false,
+            "contact": {
+                "name": "Cheryl Brown",
+                "email_address": "albanyshebear@yahoo.com",
+                "phone_number": "6152310221"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91338,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. Come learn how you can get involved with Team Warren!\r\n\r\nSnacks & drinks will be provided so please RSVP so we know you can make it. All are welcome at this organizing event.",
+            "timezone": "America/New_York",
+            "title": "Win with Warren Party Arlington",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_7_20190315170904567827.jpg",
+            "timeslots": [
+                {
+                    "id": 542022,
+                    "start_date": 1558296000,
+                    "end_date": 1558303200
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "4107 34th St N",
+                    ""
+                ],
+                "locality": "Arlington",
+                "region": "VA",
+                "postal_code": "22207",
+                "location": {
+                    "latitude": 38.9161615,
+                    "longitude": -77.121123
+                },
+                "congressional_district": "8",
+                "state_leg_district": "48",
+                "state_senate_district": "31"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556201599,
+            "modified_date": 1556216715,
+            "browser_url": "https://events.elizabethwarren.com/event/91338/",
+            "high_priority": false,
+            "contact": {
+                "name": "Carmela Ormando",
+                "email_address": "or5ka@yahoo.com",
+                "phone_number": "2023686010"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91342,
+            "description": "Join us for a cup of coffee at Mars Cafe to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Ale Gomez know by emailing agomez@elizabethwarren.com or calling/texting 570-234-6827 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Dream, Fight, Coffee",
+            "summary": "Dream big, fight hard",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA_20190425154346908662.jpg",
+            "timeslots": [
+                {
+                    "id": 542026,
+                    "start_date": 1557511200,
+                    "end_date": 1557522000
+                },
+                {
+                    "id": 542027,
+                    "start_date": 1558116000,
+                    "end_date": 1558126800
+                },
+                {
+                    "id": 542028,
+                    "start_date": 1558720800,
+                    "end_date": 1558731600
+                },
+                {
+                    "id": 542029,
+                    "start_date": 1559325600,
+                    "end_date": 1559336400
+                }
+            ],
+            "location": {
+                "venue": "Mars Cafe",
+                "address_lines": [
+                    "2318 University Ave",
+                    ""
+                ],
+                "locality": "Des Moines",
+                "region": "IA",
+                "postal_code": "50311",
+                "location": {
+                    "latitude": 41.600299,
+                    "longitude": -93.6490565
+                },
+                "congressional_district": "3",
+                "state_leg_district": "35",
+                "state_senate_district": "18"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556207143,
+            "modified_date": 1556207146,
+            "browser_url": "https://events.elizabethwarren.com/event/91342/",
+            "high_priority": false,
+            "contact": {
+                "name": "Ale Gomez",
+                "email_address": "agomez@elizabethwarren.com",
+                "phone_number": "(570) 234 - 6827"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91345,
+            "description": "Join us for a cup of coffee to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Jarae Hines know by emailing jhines@elizabethwarren.com or calling/texting 602-618-4424 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Southside Coffee Hours",
+            "summary": "Dream, Fight, COFFEE!",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA_20190425154911490239.jpg",
+            "timeslots": [
+                {
+                    "id": 542032,
+                    "start_date": 1556726400,
+                    "end_date": 1556737200
+                },
+                {
+                    "id": 542033,
+                    "start_date": 1557331200,
+                    "end_date": 1557342000
+                },
+                {
+                    "id": 542034,
+                    "start_date": 1557936000,
+                    "end_date": 1557946800
+                },
+                {
+                    "id": 542035,
+                    "start_date": 1558540800,
+                    "end_date": 1558551600
+                },
+                {
+                    "id": 542036,
+                    "start_date": 1559145600,
+                    "end_date": 1559156400
+                }
+            ],
+            "location": {
+                "venue": "Starbucks",
+                "address_lines": [
+                    "4503 Fleur Dr",
+                    ""
+                ],
+                "locality": "Des Moines",
+                "region": "IA",
+                "postal_code": "50321",
+                "location": {
+                    "latitude": 41.5443157,
+                    "longitude": -93.6447206
+                },
+                "congressional_district": "3",
+                "state_leg_district": "34",
+                "state_senate_district": "17"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556207657,
+            "modified_date": 1556207658,
+            "browser_url": "https://events.elizabethwarren.com/event/91345/",
+            "high_priority": false,
+            "contact": {
+                "name": "Jarae Hines",
+                "email_address": "jhines@elizabethwarren.com",
+                "phone_number": "602-618-4424"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91348,
+            "description": "Join us for a cup of coffee at Reising Sun Cafe to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Jessie Baron know by emailing jbaron@elizabethwarren.com or calling/texting 954-604-1225 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Polk City Persist Coffee",
+            "summary": "Dream big, fight hard.",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA_20190425155734524655.jpg",
+            "timeslots": [
+                {
+                    "id": 542039,
+                    "start_date": 1556998200,
+                    "end_date": 1557001800
+                },
+                {
+                    "id": 542040,
+                    "start_date": 1557603000,
+                    "end_date": 1557606600
+                },
+                {
+                    "id": 542041,
+                    "start_date": 1558207800,
+                    "end_date": 1558211400
+                },
+                {
+                    "id": 542042,
+                    "start_date": 1558812600,
+                    "end_date": 1558816200
+                }
+            ],
+            "location": {
+                "venue": "Reising Sun Cafe",
+                "address_lines": [
+                    "107 N 2nd St",
+                    ""
+                ],
+                "locality": "Polk City",
+                "region": "IA",
+                "postal_code": "50226",
+                "location": {
+                    "latitude": 41.7709661,
+                    "longitude": -93.7131088
+                },
+                "congressional_district": "3",
+                "state_leg_district": "19",
+                "state_senate_district": "10"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556208032,
+            "modified_date": 1556208039,
+            "browser_url": "https://events.elizabethwarren.com/event/91348/",
+            "high_priority": false,
+            "contact": {
+                "name": "Jessie Baron",
+                "email_address": "jbaron@elizabethwarren.com",
+                "phone_number": "954-604-1225"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91428,
+            "description": "Hi, All! \n\nLooking to learn more about Elizabeth Warren's policies and how you can get involved in her campaign? Come on out and meet up with other individuals in our area to build momentum for Senator Warren in Northeast Indiana! \n\nJoin us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. Come learn how you can get involved with Team Warren!\n\nSnacks & drinks will be provided so please RSVP so we know you can make it. All are welcome at this organizing event.",
+            "timezone": "America/New_York",
+            "title": "Win With Warren Fort Wayne Meet Up",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_4_20190315170827605377.jpg",
+            "timeslots": [
+                {
+                    "id": 542177,
+                    "start_date": 1556992800,
+                    "end_date": 1557000000
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "819 S Calhoun St",
+                    ""
+                ],
+                "locality": "Fort Wayne",
+                "region": "IN",
+                "postal_code": "46802",
+                "location": {
+                    "latitude": 41.0787502,
+                    "longitude": -85.1392461
+                },
+                "congressional_district": "3",
+                "state_leg_district": "81",
+                "state_senate_district": "16"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556229025,
+            "modified_date": 1556243790,
+            "browser_url": "https://events.elizabethwarren.com/event/91428/",
+            "high_priority": false,
+            "contact": {
+                "name": "Lauro Zuniga",
+                "email_address": "lauroazuniga@gmail.com",
+                "phone_number": "9565773623"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91431,
+            "description": "Join us for a Women Wine Wednesday at Betty Jenkins's home to meet some amazing Women in our community and about the big, structural change that Elizabeth is fighting for in Iowa and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Ale Gomez know by emailing agomez@elizabethwarren.com or calling/texting (570) 234-6827 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Women Wine Wednesday!",
+            "summary": "Dream Big, Fight Hard",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA4_20190425223548315173.jpg",
+            "timeslots": [
+                {
+                    "id": 542180,
+                    "start_date": 1556753400,
+                    "end_date": 1556760600
+                }
+            ],
+            "location": {
+                "venue": "Betty Jenkins's",
+                "address_lines": [
+                    "1500 47th St",
+                    ""
+                ],
+                "locality": "Des Moines",
+                "region": "IA",
+                "postal_code": "50311",
+                "location": {
+                    "latitude": 41.605958,
+                    "longitude": -93.6816966
+                },
+                "congressional_district": "3",
+                "state_leg_district": "36",
+                "state_senate_district": "18"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556231952,
+            "modified_date": 1556232050,
+            "browser_url": "https://events.elizabethwarren.com/event/91431/",
+            "high_priority": false,
+            "contact": {
+                "name": "Ale Gomez",
+                "email_address": "agomez@elizabethwarren.com",
+                "phone_number": "(570) 234 - 6827"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91445,
+            "description": "If you have any accessibility needs, please let Grace Smith know by emailing gsmith@elizabethwarren.com or calling/texting (515) 200-2142 so that we can make sure the event will be accessible and comfortable for you.\n\nJoin us at for our weekly Warren Wednesday Movie Nights and be ~inspired~ by amazing movies that remind us how and why this work matters. It's also a great chance to talk with your neighbors about the big, structural change that Elizabeth is fighting for in Iowa.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Warren Wednesday Movie Night!",
+            "summary": "Dream big, fight hard.",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA5_20190426010647434905.png",
+            "timeslots": [
+                {
+                    "id": 542202,
+                    "start_date": 1556753400,
+                    "end_date": 1556760600
+                },
+                {
+                    "id": 542203,
+                    "start_date": 1557358200,
+                    "end_date": 1557365400
+                },
+                {
+                    "id": 542204,
+                    "start_date": 1557963000,
+                    "end_date": 1557970200
+                },
+                {
+                    "id": 542205,
+                    "start_date": 1558567800,
+                    "end_date": 1558575000
+                },
+                {
+                    "id": 542206,
+                    "start_date": 1559172600,
+                    "end_date": 1559179800
+                },
+                {
+                    "id": 542207,
+                    "start_date": 1559777400,
+                    "end_date": 1559784600
+                },
+                {
+                    "id": 542208,
+                    "start_date": 1560382200,
+                    "end_date": 1560389400
+                },
+                {
+                    "id": 542209,
+                    "start_date": 1560987000,
+                    "end_date": 1560994200
+                },
+                {
+                    "id": 542210,
+                    "start_date": 1561591800,
+                    "end_date": 1561599000
+                },
+                {
+                    "id": 542211,
+                    "start_date": 1562196600,
+                    "end_date": 1562203800
+                },
+                {
+                    "id": 542212,
+                    "start_date": 1562801400,
+                    "end_date": 1562808600
+                },
+                {
+                    "id": 542213,
+                    "start_date": 1563406200,
+                    "end_date": 1563413400
+                },
+                {
+                    "id": 542214,
+                    "start_date": 1564011000,
+                    "end_date": 1564018200
+                },
+                {
+                    "id": 542215,
+                    "start_date": 1564615800,
+                    "end_date": 1564623000
+                },
+                {
+                    "id": 542216,
+                    "start_date": 1565220600,
+                    "end_date": 1565227800
+                },
+                {
+                    "id": 542217,
+                    "start_date": 1565825400,
+                    "end_date": 1565832600
+                },
+                {
+                    "id": 542218,
+                    "start_date": 1566430200,
+                    "end_date": 1566437400
+                },
+                {
+                    "id": 542219,
+                    "start_date": 1567035000,
+                    "end_date": 1567042200
+                },
+                {
+                    "id": 542220,
+                    "start_date": 1567639800,
+                    "end_date": 1567647000
+                },
+                {
+                    "id": 542221,
+                    "start_date": 1568244600,
+                    "end_date": 1568251800
+                },
+                {
+                    "id": 542222,
+                    "start_date": 1568849400,
+                    "end_date": 1568856600
+                },
+                {
+                    "id": 542223,
+                    "start_date": 1569454200,
+                    "end_date": 1569461400
+                },
+                {
+                    "id": 542224,
+                    "start_date": 1570059000,
+                    "end_date": 1570066200
+                },
+                {
+                    "id": 542225,
+                    "start_date": 1570663800,
+                    "end_date": 1570671000
+                },
+                {
+                    "id": 542226,
+                    "start_date": 1571268600,
+                    "end_date": 1571275800
+                },
+                {
+                    "id": 542227,
+                    "start_date": 1571873400,
+                    "end_date": 1571880600
+                },
+                {
+                    "id": 542228,
+                    "start_date": 1572478200,
+                    "end_date": 1572485400
+                },
+                {
+                    "id": 542229,
+                    "start_date": 1573086600,
+                    "end_date": 1573093800
+                },
+                {
+                    "id": 542230,
+                    "start_date": 1573691400,
+                    "end_date": 1573698600
+                },
+                {
+                    "id": 542231,
+                    "start_date": 1574296200,
+                    "end_date": 1574303400
+                },
+                {
+                    "id": 542232,
+                    "start_date": 1574901000,
+                    "end_date": 1574908200
+                },
+                {
+                    "id": 542233,
+                    "start_date": 1575505800,
+                    "end_date": 1575513000
+                },
+                {
+                    "id": 542234,
+                    "start_date": 1576110600,
+                    "end_date": 1576117800
+                },
+                {
+                    "id": 542235,
+                    "start_date": 1576715400,
+                    "end_date": 1576722600
+                },
+                {
+                    "id": 542236,
+                    "start_date": 1577320200,
+                    "end_date": 1577327400
+                },
+                {
+                    "id": 542237,
+                    "start_date": 1577925000,
+                    "end_date": 1577932200
+                },
+                {
+                    "id": 542238,
+                    "start_date": 1578529800,
+                    "end_date": 1578537000
+                },
+                {
+                    "id": 542239,
+                    "start_date": 1579134600,
+                    "end_date": 1579141800
+                },
+                {
+                    "id": 542240,
+                    "start_date": 1579739400,
+                    "end_date": 1579746600
+                },
+                {
+                    "id": 542241,
+                    "start_date": 1580344200,
+                    "end_date": 1580351400
+                }
+            ],
+            "location": {
+                "locality": "Clive",
+                "region": "IA",
+                "postal_code": "50325",
+                "congressional_district": "3",
+                "state_leg_district": "43",
+                "state_senate_district": "22"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556241195,
+            "modified_date": 1556241197,
+            "browser_url": "https://events.elizabethwarren.com/event/91445/",
+            "high_priority": false,
+            "contact": {
+                "name": "Grace Smith",
+                "email_address": "gsmith@elizabethwarren.com",
+                "phone_number": "(515) 200-2142"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91449,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. Come learn how you can get involved with Team Warren!\n\nPlease RSVP so we know you can make it. All are welcome at this organizing event.",
+            "timezone": "America/Los_Angeles",
+            "title": "Win With Warren (and C&P Coffee)",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_1_20190315171049960099.jpg",
+            "timeslots": [
+                {
+                    "id": 542245,
+                    "start_date": 1559181600,
+                    "end_date": 1559185200
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "",
+                    ""
+                ],
+                "locality": "Seattle",
+                "region": "WA",
+                "postal_code": "98136",
+                "location": {
+                    "latitude": 47.5378143,
+                    "longitude": -122.3911524
+                },
+                "congressional_district": null,
+                "state_leg_district": null,
+                "state_senate_district": null
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556252331,
+            "modified_date": 1556292467,
+            "browser_url": "https://events.elizabethwarren.com/event/91449/",
+            "high_priority": false,
+            "contact": {
+                "name": "Natalie Williams",
+                "email_address": "nataliesees@gmail.com",
+                "phone_number": "2069371166"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91457,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for structural change. Come learn more about Elizabeth Warren and how you can get involved.\n\nThere will be an excellent selection of beers for purchase and we\u2019ll provide some snacks. Please RSVP with the link below so we know you can make it. The space can accommodate 25.",
+            "timezone": "America/Chicago",
+            "title": "Win with Warren Party Chicago",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_1_20190315171049960099.jpg",
+            "timeslots": [
+                {
+                    "id": 542256,
+                    "start_date": 1557360000,
+                    "end_date": 1557367200
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "2812 N Lincoln Ave",
+                    ""
+                ],
+                "locality": "Chicago",
+                "region": "IL",
+                "postal_code": "60657",
+                "location": {
+                    "latitude": 41.9328159,
+                    "longitude": -87.6593653
+                },
+                "congressional_district": "5",
+                "state_leg_district": "11",
+                "state_senate_district": "6"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556284667,
+            "modified_date": 1556372124,
+            "browser_url": "https://events.elizabethwarren.com/event/91457/",
+            "high_priority": false,
+            "contact": {
+                "name": "Kelly Griffin",
+                "email_address": "griffin.kellymarie@gmail.com",
+                "phone_number": "7735734971"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91458,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. Come learn how you can get involved with Team Warren!\r\n\r\nSnacks & drinks will be provided so please RSVP so we know you can make it. All are welcome at this organizing event.",
+            "timezone": "America/New_York",
+            "title": "Win with Warren Jersey City: Make new friends & learn about the 2020 race",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_1_20190315171049960099.jpg",
+            "timeslots": [
+                {
+                    "id": 542257,
+                    "start_date": 1558218600,
+                    "end_date": 1558234800
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "844 Bergen Ave",
+                    ""
+                ],
+                "locality": "Jersey City",
+                "region": "NJ",
+                "postal_code": "07306",
+                "location": {
+                    "latitude": 40.7282499,
+                    "longitude": -74.0667138
+                },
+                "congressional_district": "10",
+                "state_leg_district": "31",
+                "state_senate_district": "31"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556287004,
+            "modified_date": 1556292713,
+            "browser_url": "https://events.elizabethwarren.com/event/91458/",
+            "high_priority": false,
+            "contact": {
+                "name": "Andrea Halloran",
+                "email_address": "andrea.halloran@gmail.com",
+                "phone_number": "9172886141"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91483,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. Come learn how you can get involved with Team Warren!\r\n\r\nSnacks & drinks will be provided so please RSVP so we know you can make it. All are welcome at this organizing event.",
+            "timezone": "America/New_York",
+            "title": "Win with Warren Party Bridgeport",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_7_20190315170904567827.jpg",
+            "timeslots": [
+                {
+                    "id": 542316,
+                    "start_date": 1561316400,
+                    "end_date": 1561321800
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "85 Ferris St",
+                    ""
+                ],
+                "locality": "Bridgeport",
+                "region": "CT",
+                "postal_code": "06605",
+                "location": {
+                    "latitude": 41.157127,
+                    "longitude": -73.2191728
+                },
+                "congressional_district": "4",
+                "state_leg_district": "129",
+                "state_senate_district": "22"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556301845,
+            "modified_date": 1556322833,
+            "browser_url": "https://events.elizabethwarren.com/event/91483/",
+            "high_priority": false,
+            "contact": {
+                "name": "carolanne curry",
+                "email_address": "carolannecurry@att.net",
+                "phone_number": "2032273573"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91492,
+            "description": "Join us for an organizing party supporting Elizabeth Warren for President. We\u2019ll be gathering to talk about Elizabeth\u2019s vision for real, structural change in this country and start getting our community organized for Elizabeth. Come learn how you can get involved with Team Warren!\r\n\r\nSnacks & drinks will be provided so please RSVP so we know you can make it. All are welcome at this organizing event.",
+            "timezone": "America/New_York",
+            "title": "Win with Warren Brooklyn",
+            "summary": "",
+            "sponsor": {
+                "id": 1316,
+                "name": "Warren for President",
+                "slug": "elizabethwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "",
+                "district": "",
+                "candidate_name": "",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://events.elizabethwarren.com/",
+                "created_date": 1552425919,
+                "modified_date": 1555968960
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_5_20190315170832345258.jpg",
+            "timeslots": [
+                {
+                    "id": 542328,
+                    "start_date": 1557003600,
+                    "end_date": 1557010800
+                }
+            ],
+            "location": {
+                "venue": "",
+                "address_lines": [
+                    "428 11th St",
+                    ""
+                ],
+                "locality": "Brooklyn",
+                "region": "NY",
+                "postal_code": "11215",
+                "location": {
+                    "latitude": 40.6663846,
+                    "longitude": -73.9844606
+                },
+                "congressional_district": "9",
+                "state_leg_district": "44",
+                "state_senate_district": "21"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556305131,
+            "modified_date": 1556322640,
+            "browser_url": "https://events.elizabethwarren.com/event/91492/",
+            "high_priority": false,
+            "contact": {
+                "name": "Milo vassalo",
+                "email_address": "miloapples@hotmail.com",
+                "phone_number": "9177431454"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": true
+        },
+        {
+            "id": 91506,
+            "description": "Join us for Office Hours in Iowa City to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Paige know by emailing pharrington@elizabethwarren.com so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Iowa City Office Hours",
+            "summary": "Dream Big, Fight Hard",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/IMG_7591_20190426213157220266.jpg",
+            "timeslots": [
+                {
+                    "id": 542346,
+                    "start_date": 1556746200,
+                    "end_date": 1556753400
+                },
+                {
+                    "id": 542347,
+                    "start_date": 1557351000,
+                    "end_date": 1557358200
+                },
+                {
+                    "id": 542348,
+                    "start_date": 1557955800,
+                    "end_date": 1557963000
+                },
+                {
+                    "id": 542349,
+                    "start_date": 1558560600,
+                    "end_date": 1558567800
+                },
+                {
+                    "id": 542350,
+                    "start_date": 1559165400,
+                    "end_date": 1559172600
+                },
+                {
+                    "id": 542351,
+                    "start_date": 1559770200,
+                    "end_date": 1559777400
+                },
+                {
+                    "id": 542352,
+                    "start_date": 1560375000,
+                    "end_date": 1560382200
+                },
+                {
+                    "id": 542353,
+                    "start_date": 1560979800,
+                    "end_date": 1560987000
+                },
+                {
+                    "id": 542354,
+                    "start_date": 1561584600,
+                    "end_date": 1561591800
+                }
+            ],
+            "location": {
+                "venue": "First Ave Java House",
+                "address_lines": [
+                    "1575 s 1st ave",
+                    ""
+                ],
+                "locality": "iowa city",
+                "region": "IA",
+                "postal_code": "52240",
+                "location": {
+                    "latitude": 41.643015,
+                    "longitude": -91.503946
+                },
+                "congressional_district": "2",
+                "state_leg_district": "86",
+                "state_senate_district": "43"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556314459,
+            "modified_date": 1556314461,
+            "browser_url": "https://events.elizabethwarren.com/event/91506/",
+            "high_priority": false,
+            "contact": {
+                "name": "Paige Harrington (They/Them)",
+                "email_address": "pharrington@elizabethwarren.com",
+                "phone_number": "6125995914"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91507,
+            "description": "Our team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nBring a friend, and we\u2019ll see you there! Thanks for being a part of this conversation.\n\nIf you need ADA accommodations, please let our team know before you arrive.",
+            "timezone": "America/Chicago",
+            "title": "Guthrie Climate Change Discussion",
+            "summary": "Dream big, fight hard",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA_20190426214416691083.jpg",
+            "timeslots": [
+                {
+                    "id": 542355,
+                    "start_date": 1558566000,
+                    "end_date": 1558573200
+                }
+            ],
+            "location": {
+                "venue": "Owl's Nest",
+                "address_lines": [
+                    "124 W Main St",
+                    ""
+                ],
+                "locality": "Panora",
+                "region": "IA",
+                "postal_code": "50216",
+                "location": {
+                    "latitude": 41.6915711,
+                    "longitude": -94.3652617
+                },
+                "congressional_district": "3",
+                "state_leg_district": "20",
+                "state_senate_district": "10"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556315125,
+            "modified_date": 1556315126,
+            "browser_url": "https://events.elizabethwarren.com/event/91507/",
+            "high_priority": false,
+            "contact": {
+                "name": "Andrew Brockwell",
+                "email_address": "abrockwell@elizabethwarren.com",
+                "phone_number": "631-830-5440"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91510,
+            "description": "Join Elizabeth Warren's Page County field organizer, Lynsey, for Office Hours at the Garrison House in Clarinda. Drop in to ask questions, share what issues are important to you, and learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\n\nWe\u2019ll see you there!\n\nGarrison House is ADA Accessible.",
+            "timezone": "America/Chicago",
+            "title": "Clarinda Organizer Office Hours",
+            "summary": "Dream Big. Fight Hard",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/EW_Photos_Mobilize_Coffee_20190426220111284651.jpg",
+            "timeslots": [
+                {
+                    "id": 542375,
+                    "start_date": 1556719200,
+                    "end_date": 1556730000
+                }
+            ],
+            "location": {
+                "venue": "Garrison Coffee House",
+                "address_lines": [
+                    "106 N. 16th St.",
+                    ""
+                ],
+                "locality": "Clarinda",
+                "region": "WI",
+                "postal_code": "51632",
+                "location": {
+                    "latitude": 40.7385837,
+                    "longitude": -95.0380177
+                },
+                "congressional_district": "3",
+                "state_leg_district": "24",
+                "state_senate_district": "12"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556316087,
+            "modified_date": 1556316088,
+            "browser_url": "https://events.elizabethwarren.com/event/91510/",
+            "high_priority": false,
+            "contact": {
+                "name": "Lynsey Hart",
+                "email_address": "lhart@elizabethwarren.com",
+                "phone_number": "(630)235-9335"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91512,
+            "description": "Join us for lunch in Winterset to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Morgan Sperry know by emailing msperry@elizabethwarren.com or calling/texting (978) 578-7311 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Nasty Women of Madison County Lunch",
+            "summary": "Dream big, fight hard.",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA%20%281%29_20190426230808879754.jpg",
+            "timeslots": [
+                {
+                    "id": 542382,
+                    "start_date": 1557507600,
+                    "end_date": 1557518400
+                }
+            ],
+            "location": {
+                "venue": "First Avenue Collective",
+                "address_lines": [
+                    "220 N 1st Ave",
+                    ""
+                ],
+                "locality": "Winterset",
+                "region": "IA",
+                "postal_code": "50273",
+                "location": {
+                    "latitude": 41.3361643,
+                    "longitude": -94.0148167
+                },
+                "congressional_district": "3",
+                "state_leg_district": "25",
+                "state_senate_district": "13"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556320191,
+            "modified_date": 1556320193,
+            "browser_url": "https://events.elizabethwarren.com/event/91512/",
+            "high_priority": false,
+            "contact": {
+                "name": "Morgan Sperry",
+                "email_address": "msperry@elizabethwarren.com",
+                "phone_number": "(978) 578-7311"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91537,
+            "description": "Join us for a panel at Grinnell College to learn about the big, structural agricultural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Camryn Hicks know by emailing chicks@elizabethwarren.com or calling/texting 484-885-4988 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Grinnell College Break Up Big Ag Panel",
+            "summary": "Dream big, fight hard.",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA5_20190427180519423460.png",
+            "timeslots": [
+                {
+                    "id": 542533,
+                    "start_date": 1556832600,
+                    "end_date": 1556838000
+                }
+            ],
+            "location": {
+                "venue": "Grinnell College- Burling Library",
+                "address_lines": [
+                    "1111 6th Ave",
+                    ""
+                ],
+                "locality": "Grinnell",
+                "region": "IA",
+                "postal_code": "50112",
+                "location": {
+                    "latitude": 41.7466138,
+                    "longitude": -92.7202964
+                },
+                "congressional_district": "1",
+                "state_leg_district": "76",
+                "state_senate_district": "38"
+            },
+            "event_type": "HOUSE_PARTY",
+            "created_date": 1556388617,
+            "modified_date": 1556388619,
+            "browser_url": "https://events.elizabethwarren.com/event/91537/",
+            "high_priority": false,
+            "contact": {
+                "name": "Camryn Hicks",
+                "email_address": "chicks@elizabethwarren.com",
+                "phone_number": "484-885-4988"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91546,
+            "description": "Join us for a community coffee group in Muscatine to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Emilia know by emailing edelgadoheinz@elizabethwarren.com or calling/texting 424-634-0411 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Muscatine Weekend Coffee Catch-Up",
+            "summary": "Dream big, fight hard!",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA_20190427215609490291.jpg",
+            "timeslots": [
+                {
+                    "id": 542563,
+                    "start_date": 1557586800,
+                    "end_date": 1557592200
+                },
+                {
+                    "id": 542564,
+                    "start_date": 1560006000,
+                    "end_date": 1560011400
+                }
+            ],
+            "location": {
+                "venue": "Black Pearl Cafe",
+                "address_lines": [
+                    "413 E. 2nd St.",
+                    ""
+                ],
+                "locality": "Muscatine",
+                "region": "IA",
+                "postal_code": "52761",
+                "location": {
+                    "latitude": 41.4234423,
+                    "longitude": -91.0421057
+                },
+                "congressional_district": "2",
+                "state_leg_district": "91",
+                "state_senate_district": "46"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556402915,
+            "modified_date": 1556404788,
+            "browser_url": "https://events.elizabethwarren.com/event/91546/",
+            "high_priority": false,
+            "contact": {
+                "name": "Emilia Delgado Heinz",
+                "email_address": "edelgadoheinz@elizabethwarren.com",
+                "phone_number": "424-634-0411"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91547,
+            "description": "Join us for a community coffee group in Wapello to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign. \n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Emilia know by emailing edelgadoheinz@elizabethwarren.com or calling/texting 424-634-0411 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "Wapello Weekend Coffee Catch-Up",
+            "summary": "Dream big, fight hard!",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA_20190427222321793561.jpg",
+            "timeslots": [
+                {
+                    "id": 542565,
+                    "start_date": 1556982000,
+                    "end_date": 1556987400
+                },
+                {
+                    "id": 542566,
+                    "start_date": 1559401200,
+                    "end_date": 1559406600
+                }
+            ],
+            "location": {
+                "venue": "Chief Brew",
+                "address_lines": [
+                    "324 Van Buren St",
+                    ""
+                ],
+                "locality": "Wapello",
+                "region": "IA",
+                "postal_code": "52653",
+                "location": {
+                    "latitude": 41.1815374,
+                    "longitude": -91.1864001
+                },
+                "congressional_district": "2",
+                "state_leg_district": "88",
+                "state_senate_district": "44"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556404728,
+            "modified_date": 1556404731,
+            "browser_url": "https://events.elizabethwarren.com/event/91547/",
+            "high_priority": false,
+            "contact": {
+                "name": "Emilia Delgado Heinz",
+                "email_address": "edelgadoheinz@elizabethwarren.com",
+                "phone_number": "424-634-0411"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        },
+        {
+            "id": 91548,
+            "description": "Join us for a community coffee group in West Branch to learn about the big, structural change that Elizabeth is fighting for in Iowa, and how you can be a part of our campaign.\n\nOur team knows that to create real change \u2013 to rebuild the middle class and save our democracy \u2013 we need to dream big and fight hard. That's why we\u2019re in this fight: to have real conversations about how to level the playing field for working families, and who is best to lead that fight.\n\nIf you have any accessibility needs, please let Emilia know by emailing edelgadoheinz@elizabethwarren.com or calling/texting 424-634-0411 so that we can make sure the event will be accessible and comfortable for you.\n\nWe\u2019ll see you there! Thanks for being a part of this fight.",
+            "timezone": "America/Chicago",
+            "title": "West Branch Weekend Coffee Catch-Up",
+            "summary": "Dream big, fight hard!",
+            "sponsor": {
+                "id": 1310,
+                "name": "Iowa for Warren",
+                "slug": "iowaforwarren",
+                "is_coordinated": true,
+                "is_independent": false,
+                "is_primary_campaign": true,
+                "state": "IA",
+                "district": "",
+                "candidate_name": "Elizabeth Warren",
+                "race_type": "PRESIDENTIAL",
+                "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+                "created_date": 1552076585,
+                "modified_date": 1556034530
+            },
+            "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/190419_IA_MA_20190427225126822377.jpg",
+            "timeslots": [
+                {
+                    "id": 542567,
+                    "start_date": 1558800000,
+                    "end_date": 1558801800
+                },
+                {
+                    "id": 542568,
+                    "start_date": 1561215600,
+                    "end_date": 1561221000
+                }
+            ],
+            "location": {
+                "venue": "Reid's Beans",
+                "address_lines": [
+                    "106 E Main St.",
+                    ""
+                ],
+                "locality": "West Branch",
+                "region": "IA",
+                "postal_code": "52358",
+                "location": {
+                    "latitude": 41.6712402,
+                    "longitude": -91.3462462
+                },
+                "congressional_district": "2",
+                "state_leg_district": "73",
+                "state_senate_district": "37"
+            },
+            "event_type": "COMMUNITY",
+            "created_date": 1556405652,
+            "modified_date": 1556405652,
+            "browser_url": "https://events.elizabethwarren.com/event/91548/",
+            "high_priority": false,
+            "contact": {
+                "name": "Emilia Delgado Heinz",
+                "email_address": "edelgadoheinz@elizabethwarren.com",
+                "phone_number": "424-634-0411"
+            },
+            "visibility": "PUBLIC",
+            "created_by_volunteer_host": false
+        }
+    ],
+    "metadata": {
+        "url_name": "public_organization_events"
+    }
+}

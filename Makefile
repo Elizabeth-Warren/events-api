@@ -1,6 +1,7 @@
 build:
-	docker build . -t events-api
+	docker-compose build
 
-tests:
-	make build
-	docker run --rm events-api
+run-tests:
+	docker-compose run --rm -e MONGODB_URI -e MOBILIZE_AMERICA_API_KEY serverless npm test
+
+test: build run-tests

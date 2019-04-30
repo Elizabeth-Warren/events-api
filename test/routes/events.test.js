@@ -1,97 +1,95 @@
 const { assert } = require('chai');
 const { HttpError, framework, router } = require('@ewarren/serverless-routing');
-const { mockAwsPromise, s3ify } = require('../stubs');
+const {
+  connectToDatabase,
+  initDatabase,
+  closeDatabaseConnection
+} = require('../../src/utils/connectToDatabase');
+const DatabaseCleaner = require('database-cleaner');
+const MockDate = require('mockdate');
 const eventsRoutes = require('../../src/routes/events');
+const testEvents = require('../fixtures/events');
 
-describe('test upcoming events route', function() {
-  it('should return the latest events in order', function(callback) {
-    const testStub = {
-      getObject: mockAwsPromise({
-        Body: s3ify({
-          data: [
-            {
-              'Event Title (US-EN)': '1',
-              'Published': true,
-              'Date': Date.now() + (1000 * 60 * 60 * 24),
-            },
-            {
-              'Event Title (US-EN)': '2',
-              'Published': true,
-              'Date': Date.now() + (1000 * 60 * 60 * 24 * 2),
-            },
-          ],
-        }),
-      }),
-    };
+describe('events routes', function() {
+  let onRequest = null;
+  let testDb = null;
 
-    const app = framework({ basePath: '/:stage-events' });
-    eventsRoutes({ app, s3: testStub });
-    const onRequest = router(app);
+  beforeEach(function(done) {
+    connectToDatabase().then((db) => {
+      testDb = db;
+      MockDate.set(new Date('2019-04-22'));
+      (new DatabaseCleaner('mongodb')).clean(testDb, () => {
+        initDatabase().then(() => { done() });
+      });
+    });
 
-    onRequest({
-      httpMethod: 'get',
-      path: '/prod-events/upcoming',
-      headers: { 'Content-Type': 'application/json' },
-    }, {}, (err, response) => {
-      assert.equal(response.statusCode, 200);
-      assert.equal(JSON.parse(response.body).events[0].title['en-US'], '1');
-      assert.equal(JSON.parse(response.body).events[1].title['en-US'], '2');
-      assert.equal(new Date(JSON.parse(response.body).events[0].date).getTimezoneOffset(), 0);
+    const app = framework({ basePath: '/:stage-events-v2' });
+    eventsRoutes(app);
+    onRequest = router(app);
+  });
 
-      callback();
+  afterEach(closeDatabaseConnection);
+
+  it('returns the latest events in temporal order', function(done) {
+    testDb.collection('events').insertMany(testEvents).then(() => {
+      onRequest({
+        httpMethod: 'get',
+        path: '/prod-events-v2/upcoming',
+        headers: { 'Content-Type': 'application/json' },
+      }, {}, (err, response) => {
+        assert.equal(response.statusCode, 200);
+        events = JSON.parse(response.body).events;
+
+        // Every event is returned, and the Iowa event is soonest.
+        assert.equal(events.length, 5);
+        assert.equal(events[0].title['en-US'], 'Tipton Meet & Greet with Elizabeth Warren');
+        assert.equal(events[1].title['en-US'], 'Waukee for Warren Coffee Hours');
+        assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
+
+        done();
+      });
     });
   });
-});
 
-describe('test nearby events route', function() {
-  it('should return the latest events in order', function(callback) {
-    const testStub = {
-      getObject: mockAwsPromise({
-        Body: s3ify({
-          data: [
-            {
-              'Event Title (US-EN)': '1',
-              'Published': true,
-              'Date': Date.now() + (1000 * 60 * 60 * 24),
-              'Longitude': -74.005974,
-              'Latitude': 40.712776,
-            },
-            {
-              'Event Title (US-EN)': '2',
-              'Published': true,
-              'Date': Date.now() + (1000 * 60 * 60 * 24 * 2),
-              'Longitude': -74.011424,
-              'Latitude': 40.705857,
-            },
-            {
-              'Event Title (US-EN)': '3',
-              'Published': true,
-              'Date': Date.now() + (1000 * 60 * 60 * 24 * 2),
-            },
-          ],
-        }),
-      }),
-    };
-
-    const app = framework({ basePath: '/:stage-events' });
-    eventsRoutes({ app, s3: testStub });
-    const onRequest = router(app);
-
+  it('can return zero events', function(done) {
     onRequest({
       httpMethod: 'get',
-      path: '/prod-events/nearby',
-      queryStringParameters: {
-        lat: '40.730597',
-        lon: '-73.997439',
-      },
+      path: '/prod-events-v2/upcoming',
       headers: { 'Content-Type': 'application/json' },
     }, {}, (err, response) => {
       assert.equal(response.statusCode, 200);
-      assert.equal(JSON.parse(response.body).events[0].title['en-US'], '1');
-      assert.equal(JSON.parse(response.body).events[1].title['en-US'], '2');
-      assert.isUndefined(JSON.parse(response.body).events[2]);
+      events = JSON.parse(response.body).events;
 
-      callback();
+      // Every event is returned, and the Iowa event is soonest.
+      assert.equal(events.length, 0);
+
+      done();
+    });
+  });
+
+  it('returns nearby events in proximity order', function(done) {
+    testDb.collection('events').insertMany(testEvents).then(() => {
+      onRequest({
+        httpMethod: 'get',
+        path: '/prod-events-v2/nearby',
+        queryStringParameters: {
+          lat: '42.382393',
+          lon: '-71.077814',
+        },
+        headers: { 'Content-Type': 'application/json' },
+      }, {}, (err, response) => {
+        assert.equal(response.statusCode, 200);
+        events = JSON.parse(response.body).events;
+
+        // Iowa event is excluded; Salem event is close enough but does not have lat/long in DB.
+        // Roxbury event is first because it's nearest.
+        assert.equal(events.length, 2);
+        assert.equal(events[0].title['en-US'], 'Win with Warren Party Roxbury');
+        assert.equal(events[1].title['en-US'], 'Win with Warren Party MetroWest');
+        assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
+
+        done();
+      });
     });
   });
 });

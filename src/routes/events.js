@@ -1,21 +1,25 @@
 const { HttpError } = require('@ewarren/serverless-routing');
 const EventModel = require('../models/Event');
-const transformEvents = require('../transformers/event');
+const { mongoDocumentToResponse } = require('../transformers/event');
+const { connectToDatabase } = require('../utils/connectToDatabase');
 
-module.exports = ({ app, s3 }) => {
-  const Event = EventModel(s3);
-
-  app.get('/upcoming', async ({ success, failed }) => {
+module.exports = (app) => {
+  app.get('/upcoming', async ({ success, failed, context }) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    const db = await connectToDatabase();
+    const Event = EventModel(db);
     const upcomingEvents = await Event.getUpcomingEvents();
 
     if (upcomingEvents instanceof HttpError) {
       return failed(upcomingEvents);
     }
 
-    return success({ events: transformEvents(upcomingEvents) });
+    return success({ events: upcomingEvents.map(mongoDocumentToResponse) });
   });
 
-  app.get('/nearby', async ({ success, failed, event }) => {
+  app.get('/nearby', async ({ success, failed, event, context }) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    const db = await connectToDatabase();
     const { queryStringParameters } = event;
 
     const {
@@ -23,19 +27,20 @@ module.exports = ({ app, s3 }) => {
       lon = null,
     } = (queryStringParameters || {});
 
-    const formattedLat = parseFloat(lat);
-    const formattedLon = parseFloat(lon);
+    const latFloat = parseFloat(lat);
+    const lonFloat = parseFloat(lon);
 
-    if (isNaN(formattedLat) || isNaN(formattedLon)) {
+    if (isNaN(latFloat) || isNaN(lonFloat)) {
       return failed(new HttpError('Missing lat/lon.'), 400);
     }
 
-    const nearbyEvents = await Event.getEventsNearPoint(formattedLon, formattedLat);
+    const Event = EventModel(db);
+    const nearbyEvents = await Event.getEventsNearPoint(lonFloat, latFloat);
 
     if (nearbyEvents instanceof HttpError) {
       return failed(nearbyEvents);
     }
 
-    return success({ events: transformEvents(nearbyEvents) });
+    return success({ events: nearbyEvents.map(mongoDocumentToResponse) });
   });
 };

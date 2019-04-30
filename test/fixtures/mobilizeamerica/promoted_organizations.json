@@ -1,0 +1,70 @@
+{
+    "count": 4,
+    "next": null,
+    "previous": null,
+    "data": [
+        {
+            "id": 1310,
+            "name": "Iowa for Warren",
+            "slug": "iowaforwarren",
+            "is_coordinated": true,
+            "is_independent": false,
+            "is_primary_campaign": true,
+            "state": "IA",
+            "district": "",
+            "candidate_name": "Elizabeth Warren",
+            "race_type": "PRESIDENTIAL",
+            "event_feed_url": "https://www.mobilize.us/iowaforwarren/",
+            "created_date": 1552076585,
+            "modified_date": 1556034530
+        },
+        {
+            "id": 1361,
+            "name": "Nevada for Warren",
+            "slug": "nevadaforwarren",
+            "is_coordinated": true,
+            "is_independent": false,
+            "is_primary_campaign": true,
+            "state": "NV",
+            "district": "",
+            "candidate_name": "Elizabeth Warren",
+            "race_type": "PRESIDENTIAL",
+            "event_feed_url": "https://www.mobilize.us/nevadaforwarren/",
+            "created_date": 1553030935,
+            "modified_date": 1556032588
+        },
+        {
+            "id": 1416,
+            "name": "South Carolina for Warren",
+            "slug": "southcarolinaforwarren",
+            "is_coordinated": true,
+            "is_independent": false,
+            "is_primary_campaign": true,
+            "state": "SC",
+            "district": "",
+            "candidate_name": "Elizabeth Warren",
+            "race_type": "PRESIDENTIAL",
+            "event_feed_url": "https://www.mobilize.us/southcarolinaforwarren/",
+            "created_date": 1554847756,
+            "modified_date": 1556032674
+        },
+        {
+            "id": 1360,
+            "name": "Warren for New Hampshire",
+            "slug": "warrenfornewhampshire",
+            "is_coordinated": true,
+            "is_independent": false,
+            "is_primary_campaign": true,
+            "state": "NH",
+            "district": "",
+            "candidate_name": "",
+            "race_type": "PRESIDENTIAL",
+            "event_feed_url": "https://www.mobilize.us/warrenfornewhampshire/",
+            "created_date": 1553029480,
+            "modified_date": 1555368723
+        }
+    ],
+    "metadata": {
+        "url_name": "public_organization_promotions"
+    }
+}
