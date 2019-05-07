@@ -13,4 +13,4 @@ services:
     depends_on:
       - mongo
     ports:
-      - "3000:3000"
+      - "3001:3001"

@@ -15,6 +15,9 @@ custom:
     basePath: ${self:custom.stage}-events-v2
     stage: ${self:custom.stage}
     createRoute53Record: true
+  serverless-offline:
+    host: 0.0.0.0
+    port: 3001
 
 service: events-api-v2
 
