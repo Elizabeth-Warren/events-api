@@ -45,6 +45,7 @@ functions:
           method: any
           cors: true
   importEvents:
+    timeout: 30  # Timeout after 30 seconds
     handler: src/handler.importEvents
     events:
       - schedule: rate(5 minutes)
