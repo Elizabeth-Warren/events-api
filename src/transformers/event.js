@@ -56,7 +56,7 @@ function mobilizeAmericaToMongoDocument({
 }) {
   return {
     mobilizeId: id,
-    loc: location.location && location.location.longitude && location.location.latitude ? {
+    loc: location && location.location && location.location.longitude && location.location.latitude ? {
       type: 'Point',
       coordinates: [
         location.location.longitude,
@@ -71,11 +71,11 @@ function mobilizeAmericaToMongoDocument({
     startTime: new Date(timeslots[0].start_date * 1000),
     endTime: new Date(timeslots[0].end_date * 1000),
     timezone,
-    venue: location.venue,
-    publicAddress: location.address_lines ? location.address_lines[0] : '',
-    city: location.locality,
-    state: location.region,
-    zipcode: location.postal_code,
+    venue: location ? location.venue : '',
+    publicAddress: location && location.address_lines ? location.address_lines[0] : '',
+    city: location ? location.locality : '',
+    state: location ? location.region : '',
+    zipcode: location ? location.postal_code : '',
     rsvpLink: browser_url.replace(new RegExp('www.mobilize.us/[^/]+'), 'events.elizabethwarren.com'),
     rsvpCtaOverride: null,
     highPriority: high_priority,
