@@ -60,7 +60,7 @@ module.exports = (app) => {
     return success({ events: events.map(mongoDocumentToResponse) });
   });
 
-  app.get('/upcomingHighPriorityAndNearby', async ({ success, failed, event, context }) => {
+  app.get('/upcoming-high-priority-and-nearby', async ({ success, failed, event, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
     const db = await connectToDatabase();
     const { lat, lon } = parseLocParams(event);

@@ -29,7 +29,7 @@ const asyncWrap = require('../utils/asyncWrap');
 module.exports = (db) => {
   const collection = db.collection('events');
   const searchRadius = 300 * 1609;  // 300 miles in meters
-  const lowPriorityEventLimit = 25;  // Return no more than this many low-priority events.
+  const eventLimit = 25;  // Return no more than this many events.
 
   async function _init() {
     await collection.createIndex([ { startTime: 1 }, { highPriority: -1 }]);
@@ -50,7 +50,7 @@ module.exports = (db) => {
       startTime: {
         $gte : new Date(),
       }
-    }).sort({ highPriority: -1, startTime: 1 }).limit(lowPriorityEventLimit);
+    }).sort({ highPriority: -1, startTime: 1 }).limit(eventLimit);
     return eventsCursor.toArray();
   }
 
@@ -63,32 +63,23 @@ module.exports = (db) => {
    * @return      {Array<Object>}
    */
   async function _getUpcomingHighPriorityAndNearbyEvents(originLon, originLat) {
-    const eventsCursorHighPriority = await collection.find({
+    const eventsCursor = await collection.find({
       startTime: {
         $gte : new Date(),
       },
-      highPriority: true
-    }).sort({ startTime: 1 });
-    const highPriorityEvents = await eventsCursorHighPriority.toArray();
-
-    const eventsCursorNearby = await collection.find({
-      startTime: {
-        $gte : new Date(),
-      },
-      highPriority: false,
       loc: {
         $near: {
           $geometry: {
             type: 'Point' ,
             coordinates: [ originLon, originLat ]
-          },
-          $maxDistance: searchRadius
+          }
         }
       }
-    }).limit(lowPriorityEventLimit);
-    const nearbyEvents = await eventsCursorNearby.toArray();
+    }).limit(eventLimit);
+    const events = await eventsCursor.toArray();
+    events.sort((e1, e2) => e2.highPriority - e1.highPriority);
 
-    return highPriorityEvents.concat(nearbyEvents)
+    return events;
   }
 
   const getUpcomingHighPriorityAndNearbyEvents = asyncWrap(_getUpcomingHighPriorityAndNearbyEvents);
@@ -114,7 +105,7 @@ module.exports = (db) => {
           $maxDistance: searchRadius
         }
       }
-    }).limit(lowPriorityEventLimit);
+    }).limit(eventLimit);
     return eventsCursor.toArray();
   }
 
