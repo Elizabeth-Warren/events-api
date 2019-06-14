@@ -2,6 +2,30 @@ const { HttpError } = require('@ewarren/serverless-routing');
 const EventModel = require('../models/Event');
 const { mongoDocumentToResponse } = require('../transformers/event');
 const { connectToDatabase } = require('../utils/connectToDatabase');
+const zipcodes = require('zipcodes');
+
+function parseLocParams(event) {
+  const { queryStringParameters } = event;
+
+  var {
+    lat = null,
+    lon = null,
+    zip = null,
+  } = (queryStringParameters || {});
+
+  if (zip && !lat && !lon) {
+    z = zipcodes.lookup(zip);
+    if (z) {
+      lat = z.latitude;
+      lon = z.longitude;
+    }
+  }
+
+  return {
+    lat: parseFloat(lat),
+    lon: parseFloat(lon),
+  }
+}
 
 module.exports = (app) => {
   app.get('/upcoming', async ({ success, failed, context }) => {
@@ -20,27 +44,38 @@ module.exports = (app) => {
   app.get('/nearby', async ({ success, failed, event, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
     const db = await connectToDatabase();
-    const { queryStringParameters } = event;
+    const { lat, lon } = parseLocParams(event);
 
-    const {
-      lat = null,
-      lon = null,
-    } = (queryStringParameters || {});
-
-    const latFloat = parseFloat(lat);
-    const lonFloat = parseFloat(lon);
-
-    if (isNaN(latFloat) || isNaN(lonFloat)) {
-      return failed(new HttpError('Missing lat/lon.'), 400);
+    if (isNaN(lat) || isNaN(lon)) {
+      return failed(new HttpError('Missing valid lat/lon or zip.'), 400);
     }
 
     const Event = EventModel(db);
-    const nearbyEvents = await Event.getEventsNearPoint(lonFloat, latFloat);
+    const events = await Event.getEventsNearPoint(lon, lat);
 
-    if (nearbyEvents instanceof HttpError) {
-      return failed(nearbyEvents);
+    if (events instanceof HttpError) {
+      return failed(events);
     }
 
-    return success({ events: nearbyEvents.map(mongoDocumentToResponse) });
+    return success({ events: events.map(mongoDocumentToResponse) });
+  });
+
+  app.get('/upcomingHighPriorityAndNearby', async ({ success, failed, event, context }) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    const db = await connectToDatabase();
+    const { lat, lon } = parseLocParams(event);
+
+    if (isNaN(lat) || isNaN(lon)) {
+      return failed(new HttpError('Missing valid lat/lon or zip.'), 400);
+    }
+
+    const Event = EventModel(db);
+    const events = await Event.getUpcomingHighPriorityAndNearbyEvents(lon, lat);
+
+    if (events instanceof HttpError) {
+      return failed(events);
+    }
+
+    return success({ events: events.map(mongoDocumentToResponse) });
   });
 };

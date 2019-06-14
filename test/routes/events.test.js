@@ -92,4 +92,70 @@ describe('events routes', function() {
       });
     });
   });
+
+  it('handles invalid zip', function(done) {
+    testDb.collection('events').insertMany(testEvents).then(() => {
+      onRequest({
+        httpMethod: 'get',
+        path: '/prod-events-v2/nearby',
+        queryStringParameters: {
+          zip: '00000',
+        },
+        headers: { 'Content-Type': 'application/json' },
+      }, {}, (err, response) => {
+        assert.equal(response.statusCode, 400);
+        done();
+      });
+    });
+  });
+
+  it('returns nearby events to zip in proximity order', function(done) {
+    testDb.collection('events').insertMany(testEvents).then(() => {
+      onRequest({
+        httpMethod: 'get',
+        path: '/prod-events-v2/nearby',
+        queryStringParameters: {
+          zip: '02129',
+        },
+        headers: { 'Content-Type': 'application/json' },
+      }, {}, (err, response) => {
+        assert.equal(response.statusCode, 200);
+        events = JSON.parse(response.body).events;
+
+        assert.equal(events.length, 2);
+        assert.equal(events[0].title['en-US'], 'Win with Warren Party Roxbury');
+        assert.equal(events[1].title['en-US'], 'Win with Warren Party MetroWest');
+        assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
+
+        done();
+      });
+    });
+  });
+
+  it('returns upcoming high priority and nearby events', function(done) {
+    testDb.collection('events').insertMany(testEvents).then(() => {
+      onRequest({
+        httpMethod: 'get',
+        path: '/prod-events-v2/upcomingHighPriorityAndNearby',
+        queryStringParameters: {
+          lat: '42.382393',
+          lon: '-71.077814',
+        },
+        headers: { 'Content-Type': 'application/json' },
+      }, {}, (err, response) => {
+        assert.equal(response.statusCode, 200);
+        events = JSON.parse(response.body).events;
+
+        // Iowa event is excluded; Salem event is close enough but does not have lat/long in DB.
+        // Roxbury event is first because it's nearest.
+        assert.equal(events.length, 3);
+        assert.equal(events[0].title['en-US'], 'Tipton Meet & Greet with Elizabeth Warren');
+        assert.equal(events[1].title['en-US'], 'Win with Warren Party Roxbury');
+        assert.equal(events[2].title['en-US'], 'Win with Warren Party MetroWest');
+        assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
+
+        done();
+      });
+    });
+  });
 });
