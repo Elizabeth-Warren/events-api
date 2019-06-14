@@ -50,7 +50,7 @@ module.exports = (db) => {
       startTime: {
         $gte : new Date(),
       }
-    }).sort({ highPriority: -1, startTime: 1 });
+    }).sort({ highPriority: -1, startTime: 1 }).limit(lowPriorityEventLimit);
     return eventsCursor.toArray();
   }
 
