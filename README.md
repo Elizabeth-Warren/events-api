@@ -32,7 +32,7 @@ $ sls logs -f api --stage staging
 
 **Get Upcoming Events**
 
-Return a list of sorted events.
+Return a list of upcoming events ordered by priority then chronologically.
 
 ```
 GET /events/upcoming
@@ -60,16 +60,45 @@ Response (200/json)
 
 **Get Nearby Events**
 
-Get events near a given lat/lon coordinate within 300 miles.
+Return a list of events near within 300 miles of given lat/lon coordinate ordered strictly by geographic proximity (not by priority and not by time).
 
 ```
 GET /nearby?lat=${LATITUDE}&lon=${LONGITUDE}
+GET /nearby?zip=${ZIP}
 
 Response (200/json)
 {
   events: [
     {
-      distance: Float, // Miles from request coordinate
+      title: String,
+      date: String,
+      startTime: String,
+      endTime: String,
+      timezone: String,
+      publicAddress: String,
+      city: String,
+      state: String,
+      zipcode: String,
+      latitude: String,
+      longitude: String,
+      rsvpLink: String,
+    },
+  ],
+}
+
+**Get Upcoming High-Priority And Nearby Events**
+
+Return a list of upcoming events ordered by priority then by geographic
+proximity.
+
+```
+GET /upcoming-high-priority-and-nearby?lat=${LATITUDE}&lon=${LONGITUDE}
+GET /upcoming-high-priority-and-nearby?zip=${ZIP}
+
+Response (200/json)
+{
+  events: [
+    {
       title: String,
       date: String,
       startTime: String,

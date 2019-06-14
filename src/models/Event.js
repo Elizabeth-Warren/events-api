@@ -29,6 +29,7 @@ const asyncWrap = require('../utils/asyncWrap');
 module.exports = (db) => {
   const collection = db.collection('events');
   const searchRadius = 300 * 1609;  // 300 miles in meters
+  const eventLimit = 25;  // Return no more than this many events.
 
   async function _init() {
     await collection.createIndex([ { startTime: 1 }, { highPriority: -1 }]);
@@ -49,11 +50,39 @@ module.exports = (db) => {
       startTime: {
         $gte : new Date(),
       }
-    }).sort({ highPriority: -1, startTime: 1 });
+    }).sort({ highPriority: -1, startTime: 1 }).limit(eventLimit);
     return eventsCursor.toArray();
   }
 
   const getUpcomingEvents = asyncWrap(_getUpcomingEvents);
+
+  /**
+   * Get a list of high-priority events that haven't happened yet,
+   * ordered by how soon they will happen.
+   *
+   * @return      {Array<Object>}
+   */
+  async function _getUpcomingHighPriorityAndNearbyEvents(originLon, originLat) {
+    const eventsCursor = await collection.find({
+      startTime: {
+        $gte : new Date(),
+      },
+      loc: {
+        $near: {
+          $geometry: {
+            type: 'Point' ,
+            coordinates: [ originLon, originLat ]
+          }
+        }
+      }
+    }).limit(eventLimit);
+    const events = await eventsCursor.toArray();
+    events.sort((e1, e2) => e2.highPriority - e1.highPriority);
+
+    return events;
+  }
+
+  const getUpcomingHighPriorityAndNearbyEvents = asyncWrap(_getUpcomingHighPriorityAndNearbyEvents);
 
   /**
    * Get events near a point within 300 miles, ordered by proximity.
@@ -64,6 +93,9 @@ module.exports = (db) => {
    */
   async function _getEventsNearPoint(originLon, originLat) {
     const eventsCursor = await collection.find({
+      startTime: {
+        $gte : new Date(),
+      },
       loc: {
         $near: {
           $geometry: {
@@ -73,7 +105,7 @@ module.exports = (db) => {
           $maxDistance: searchRadius
         }
       }
-    })
+    }).limit(eventLimit);
     return eventsCursor.toArray();
   }
 
@@ -81,7 +113,8 @@ module.exports = (db) => {
 
   return {
     init,
-    getUpcomingEvents,
     getEventsNearPoint,
+    getUpcomingEvents,
+    getUpcomingHighPriorityAndNearbyEvents,
   };
 };
