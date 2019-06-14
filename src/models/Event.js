@@ -29,6 +29,7 @@ const asyncWrap = require('../utils/asyncWrap');
 module.exports = (db) => {
   const collection = db.collection('events');
   const searchRadius = 300 * 1609;  // 300 miles in meters
+  const lowPriorityEventLimit = 25;  // Return no more than this many low-priority events.
 
   async function _init() {
     await collection.createIndex([ { startTime: 1 }, { highPriority: -1 }]);
@@ -84,7 +85,7 @@ module.exports = (db) => {
           $maxDistance: searchRadius
         }
       }
-    });
+    }).limit(lowPriorityEventLimit);
     const nearbyEvents = await eventsCursorNearby.toArray();
 
     return highPriorityEvents.concat(nearbyEvents)
@@ -113,7 +114,7 @@ module.exports = (db) => {
           $maxDistance: searchRadius
         }
       }
-    });
+    }).limit(lowPriorityEventLimit);
     return eventsCursor.toArray();
   }
 
