@@ -75,14 +75,16 @@ module.exports = (db) => {
           }
         }
       }
-    }).limit(eventLimit);
+    });
 
     // Stable sort by priority, so the result is sorted by priority then by geographic proximity.
+    // We limit to 'eventLimit' after fetching all events because we are re-sorting.
     const events = await eventsCursor.toArray();
     return events
       .map((e, index) => ({e, index}))
       .sort((a, b) => (b.e.highPriority - a.e.highPriority) || (a.index - b.index))
       .map(({e}) => e)
+      .slice(0, eventLimit)
   }
 
   const getUpcomingHighPriorityAndNearbyEvents = asyncWrap(_getUpcomingHighPriorityAndNearbyEvents);
