@@ -70,8 +70,16 @@ module.exports = (db) => {
       startTime: {
         $gte : new Date(),
       },
-      highPriority: true
-    }).sort({ startTime: 1 });
+      highPriority: true,
+      loc: {
+        $near: {
+          $geometry: {
+            type: 'Point' ,
+            coordinates: [ originLon, originLat ],
+          },
+        },
+      },
+    }).limit(eventLimit);
     const highPriorityEvents = await eventsCursorHighPriority.toArray();
 
     const eventsCursorNearby = await collection.find({
@@ -83,10 +91,10 @@ module.exports = (db) => {
         $near: {
           $geometry: {
             type: 'Point' ,
-            coordinates: [ originLon, originLat ]
+            coordinates: [ originLon, originLat ],
           },
-        }
-      }
+        },
+      },
     }).limit(eventLimit);
     const nearbyEvents = await eventsCursorNearby.toArray();
 
