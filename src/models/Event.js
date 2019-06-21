@@ -60,31 +60,37 @@ module.exports = (db) => {
    * Get a list of high-priority events that haven't happened yet,
    * ordered by how soon they will happen.
    *
+   * Returns at most 'eventLimit' plus the number of high-priority
+   * events.
+   *
    * @return      {Array<Object>}
    */
   async function _getUpcomingHighPriorityAndNearbyEvents(originLon, originLat) {
-    const eventsCursor = await collection.find({
+    const eventsCursorHighPriority = await collection.find({
       startTime: {
         $gte : new Date(),
       },
+      highPriority: true
+    }).sort({ startTime: 1 });
+    const highPriorityEvents = await eventsCursorHighPriority.toArray();
+
+    const eventsCursorNearby = await collection.find({
+      startTime: {
+        $gte : new Date(),
+      },
+      highPriority: false,
       loc: {
         $near: {
           $geometry: {
             type: 'Point' ,
             coordinates: [ originLon, originLat ]
-          }
+          },
         }
       }
-    });
+    }).limit(eventLimit);
+    const nearbyEvents = await eventsCursorNearby.toArray();
 
-    // Stable sort by priority, so the result is sorted by priority then by geographic proximity.
-    // We limit to 'eventLimit' after fetching all events because we are re-sorting.
-    const events = await eventsCursor.toArray();
-    return events
-      .map((e, index) => ({e, index}))
-      .sort((a, b) => (b.e.highPriority - a.e.highPriority) || (a.index - b.index))
-      .map(({e}) => e)
-      .slice(0, eventLimit)
+    return highPriorityEvents.concat(nearbyEvents)
   }
 
   const getUpcomingHighPriorityAndNearbyEvents = asyncWrap(_getUpcomingHighPriorityAndNearbyEvents);
