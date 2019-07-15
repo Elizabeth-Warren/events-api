@@ -28,19 +28,8 @@ function parseLocParams(event) {
 }
 
 module.exports = (app) => {
-  app.get('/upcoming', async ({ event, success, failed, context }) => {
+  app.get('/upcoming', async ({ success, failed, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
-
-    const {
-      requestContext: {
-        identity: {
-          sourceIp,
-          userAgent,
-        },
-      },
-    } = event;
-
-    console.log('Incoming request', { path: '/upcoming', sourceIp, userAgent });
 
     const db = await connectToDatabase();
     const Event = EventModel(db);
@@ -55,17 +44,6 @@ module.exports = (app) => {
 
   app.get('/nearby', async ({ success, failed, event, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
-
-    const {
-      requestContext: {
-        identity: {
-          sourceIp,
-          userAgent,
-        },
-      },
-    } = event;
-
-    console.log('Incoming request', { path: '/upcoming', sourceIp, userAgent });
 
     const db = await connectToDatabase();
     const { lat, lon } = parseLocParams(event);
@@ -86,17 +64,6 @@ module.exports = (app) => {
 
   app.get('/upcoming-high-priority-and-nearby', async ({ success, failed, event, context }) => {
     context.callbackWaitsForEmptyEventLoop = false;
-
-    const {
-      requestContext: {
-        identity: {
-          sourceIp,
-          userAgent,
-        },
-      },
-    } = event;
-
-    console.log('Incoming request', { path: '/upcoming', sourceIp, userAgent });
 
     const db = await connectToDatabase();
     const { lat, lon } = parseLocParams(event);
