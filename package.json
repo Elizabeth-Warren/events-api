@@ -2,7 +2,7 @@
   "name": "events-api",
   "description": "Lookup nearby campaign events",
   "dependencies": {
-    "@ewarren/serverless-routing": "^1.2.4",
+    "@ewarren/serverless-routing": "^1.3.4",
     "lodash": "^4.17.13",
     "mongodb": "^3.2.7",
     "request": "^2.88.0",
