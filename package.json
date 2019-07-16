@@ -7,6 +7,7 @@
     "mongodb": "^3.2.7",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
+    "serverless-log-forwarding": "^1.4.0",
     "zipcodes": "^8.0.0"
   },
   "devDependencies": {
