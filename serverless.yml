@@ -18,6 +18,8 @@ custom:
   serverless-offline:
     host: 0.0.0.0
     port: 3001
+  logForwarding:
+    destinationARN: ${cf:lambda-papertrail-prod.ForwarderLambdaArn}
 
 service: events-api-v2
 
@@ -31,6 +33,7 @@ provider:
 plugins:
   - serverless-domain-manager
   - serverless-offline
+  - serverless-log-forwarding
 
 functions:
   api:
