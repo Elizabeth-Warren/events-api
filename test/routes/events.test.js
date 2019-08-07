@@ -47,7 +47,9 @@ describe('events routes', function() {
         assert.equal(events[2].title['en-US'], 'Win with Warren Party MetroWest');
         assert.equal(events[3].title['en-US'], 'Salem Community Meeting');
         assert.equal(events[4].title['en-US'], 'Win with Warren Party Roxbury');
+
         assert.equal(new Date(events[0].date).getTimezoneOffset(), 0);
+        assert.equal(events[0].eventType, 'MEET_GREET');
 
         done();
       });

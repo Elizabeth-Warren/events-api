@@ -53,6 +53,8 @@ Response (200/json)
       latitude: String,
       longitude: String,
       rsvpLink: String,
+      highPriority: Bool,
+      eventType: String,
     },
   ],
 }
@@ -82,6 +84,8 @@ Response (200/json)
       latitude: String,
       longitude: String,
       rsvpLink: String,
+      highPriority: Bool,
+      eventType: String,
     },
   ],
 }
@@ -111,6 +115,8 @@ Response (200/json)
       latitude: String,
       longitude: String,
       rsvpLink: String,
+      highPriority: Bool,
+      eventType: String,
     },
   ],
 }

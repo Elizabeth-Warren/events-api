@@ -25,6 +25,7 @@ function mongoDocumentToResponse({
   highPriority,
   rsvpLink,
   rsvpCtaOverride,
+  eventType,
 }) {
   return {
     title,
@@ -42,6 +43,7 @@ function mongoDocumentToResponse({
     highPriority,
     rsvpLink,
     rsvpCtaOverride,
+    eventType,
   };
 };
 
@@ -53,6 +55,7 @@ function mobilizeAmericaToMongoDocument({
   timezone,
   browser_url,
   high_priority,
+  event_type,
 }) {
   return {
     mobilizeId: id,
@@ -79,6 +82,7 @@ function mobilizeAmericaToMongoDocument({
     rsvpLink: browser_url.replace(new RegExp('www.mobilize.us/[^/]+'), 'events.elizabethwarren.com'),
     rsvpCtaOverride: null,
     highPriority: high_priority,
+    eventType: event_type,
   };
 };
 

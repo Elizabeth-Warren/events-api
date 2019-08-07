@@ -16,6 +16,7 @@ module.exports = [{
     rsvpLink: 'https://events.elizabethwarren.com/event/88773/',
     rsvpCtaOverride: null,
     highPriority: false,
+    eventType: 'COMMUNITY',
   }, {
     mobilizeId: 90980,
     loc: { type: 'Point', coordinates: [-91.1281814, 41.7687331] },
@@ -35,6 +36,7 @@ module.exports = [{
     rsvpLink: 'https://events.elizabethwarren.com/event/90980/',
     rsvpCtaOverride: null,
     highPriority: true,
+    eventType: 'MEET_GREET',
   }, {
     mobilizeId: 90805,
     loc: null,  // Some Mobilize America events do not have lat/long.
@@ -53,6 +55,7 @@ module.exports = [{
     rsvpLink: 'https://events.elizabethwarren.com/event/90805/',
     rsvpCtaOverride: null,
     highPriority: false,
+    eventType: 'COMMUNITY',
   }, {
     mobilizeId: 88931,
     loc: { type: 'Point', coordinates: [-71.6080009, 42.2638905] },
@@ -71,6 +74,7 @@ module.exports = [{
     rsvpLink: 'https://events.elizabethwarren.com/event/88931/',
     rsvpCtaOverride: null,
     highPriority: false,
+    eventType: 'COMMUNITY',
   }, {
     mobilizeId: 89109,
     loc: { type: 'Point', coordinates: [-71.0953117, 42.326097] },
@@ -89,4 +93,5 @@ module.exports = [{
     rsvpLink: 'https://events.elizabethwarren.com/event/89109/',
     rsvpCtaOverride: null,
     highPriority: false,
+    eventType: 'COMMUNITY',
   }]
