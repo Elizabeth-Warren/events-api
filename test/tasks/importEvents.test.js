@@ -79,7 +79,7 @@ describe('importEvents task', function() {
       .get('/v1/organizations/1316/promoted_organizations')
       .reply(200, require('../fixtures/mobilizeamerica/promoted_organizations.json'));
     nock(mobilizeAmericaBase)
-      .get('/v1/organizations/1310/events?timeslot_start=gte_now')
+      .get('/v1/organizations/1310/events?timeslot_start=gte_now&exclude_full=true')
       .reply(200, require('../fixtures/mobilizeamerica/1310-1.json'));
     nock(mobilizeAmericaBase)
       .get('/v1/organizations/1310/events?page=2&timeslot_start=gte_now')
@@ -88,16 +88,16 @@ describe('importEvents task', function() {
       .get('/v1/organizations/1310/events?page=3&timeslot_start=gte_now')
       .reply(200, require('../fixtures/mobilizeamerica/1310-3.json'));
     nock(mobilizeAmericaBase)
-      .get('/v1/organizations/1361/events?timeslot_start=gte_now')
+      .get('/v1/organizations/1361/events?timeslot_start=gte_now&exclude_full=true')
       .reply(200, require('../fixtures/mobilizeamerica/1361-1.json'));
     nock(mobilizeAmericaBase)
-      .get('/v1/organizations/1416/events?timeslot_start=gte_now')
+      .get('/v1/organizations/1416/events?timeslot_start=gte_now&exclude_full=true')
       .reply(200, require('../fixtures/mobilizeamerica/1416-1.json'));
     nock(mobilizeAmericaBase)
-      .get('/v1/organizations/1360/events?timeslot_start=gte_now')
+      .get('/v1/organizations/1360/events?timeslot_start=gte_now&exclude_full=true')
       .reply(200, require('../fixtures/mobilizeamerica/1360-1.json'));
     nock(mobilizeAmericaBase)
-      .get('/v1/organizations/1316/events?timeslot_start=gte_now')
+      .get('/v1/organizations/1316/events?timeslot_start=gte_now&exclude_full=true')
       .reply(200, require('../fixtures/mobilizeamerica/1316-1.json'));
     nock(mobilizeAmericaBase)
       .get('/v1/organizations/1316/events?page=2&timeslot_start=gte_now')
@@ -137,6 +137,7 @@ describe('importEvents task', function() {
     // but not in the top-level organization. It should be pulled down as high
     // priority because the state organization setting takes precedence.
     assert.equal(updatedEvent.highPriority, true);
+    assert.equal(updatedEvent.eventType, 'MEET_GREET');
 
     obsoleteEventExists = await collection.count({ mobilizeId: 1234 })
     assert.equal(obsoleteEventExists, 0);
