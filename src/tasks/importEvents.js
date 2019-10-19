@@ -61,6 +61,18 @@ async function getAllEvents() {
     for (let organizationEvents of nestedEvents) {
       for (let organizationEvent of organizationEvents) {
         if (!alreadyAddedEvents.has(organizationEvent.id)) {
+          // This is a bit sloppy. Historically, we wanted events marked as
+          // high-priority in suborganizations (i.e. Iowa, New Hampshire, etc)
+          // to be marked as high priorty on the website. In October 2019 we
+          // decided that only events marked as high priority in national
+          // organization should be high priority on the website. So we don't
+          // let any events from non-National organizations be high priority.
+          // With this new behavior, we really should just refactor this entire
+          // import so it only fetches events from the National instance.
+          if (organizationEvent.sponsor.id != topLevelOrganizationId) {
+            organizationEvent.high_priority = false
+          }
+
           flatEvents.push(organizationEvent);
           alreadyAddedEvents.add(organizationEvent.id);
         }

@@ -133,11 +133,17 @@ describe('importEvents task', function() {
     assert.equal(updatedEvent.state, 'IA');
     assert.equal(updatedEvent.zipcode, '52772');
     assert.equal(updatedEvent.rsvpLink, 'https://events.elizabethwarren.com/event/90980/');
+
     // This event is high priority in the Iowa Mobilize America organization,
-    // but not in the top-level organization. It should be pulled down as high
-    // priority because the state organization setting takes precedence.
-    assert.equal(updatedEvent.highPriority, true);
+    // but not in the top-level organization. It should not be high priority
+    // because the state organization setting of highPriority no longer takes
+    // precedence.
+    assert.equal(updatedEvent.highPriority, false);
     assert.equal(updatedEvent.eventType, 'MEET_GREET');
+
+    // Events marked high priority in National organization are saved as high priority.
+    const highPriorityNationalEvent = await collection.findOne({ mobilizeId: 88677 });
+    assert.equal(highPriorityNationalEvent.highPriority, true);
 
     obsoleteEventExists = await collection.count({ mobilizeId: 1234 })
     assert.equal(obsoleteEventExists, 0);
