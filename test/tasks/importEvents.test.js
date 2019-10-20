@@ -150,6 +150,6 @@ describe('importEvents task', function() {
 
     const eventsCursor = await collection.find().sort( { startTime: 1 } );
     const allEvents = await eventsCursor.toArray();
-    assert.equal(allEvents.length, 159);
+    assert.equal(allEvents.length, 150);
   });
 });
