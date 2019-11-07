@@ -89,6 +89,7 @@ Response (200/json)
     },
   ],
 }
+```
 
 **Get Upcoming High-Priority And Nearby Events**
 
