@@ -1,1 +1,17 @@
 node_modules/
+.github/
+.gitignore
+docker-compose.yml
+Dockerfile
+LICENSE
+Makefile
+README.md
+serverless.yml
+
+# package directories
+node_modules
+jspm_packages
+
+# artifacts
+.serverless
+data/
