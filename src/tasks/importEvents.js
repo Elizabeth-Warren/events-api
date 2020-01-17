@@ -13,16 +13,12 @@ function organizationEventsUrl(organizationId) {
   return `https://api.mobilize.us/v1/organizations/${organizationId}/events?timeslot_start=gte_now&exclude_full=true`;
 }
 
-const mobilizeAmericaApiKey = process.env.MOBILIZE_AMERICA_API_KEY;
 const upsertBatchSize = 10;
 
 async function mobilizeAmericaRequest(url) {
   return request({
     url,
     json: true,
-    headers: {
-      Authorization: `Bearer ${mobilizeAmericaApiKey}`,
-    },
   });
 }
 
@@ -85,7 +81,7 @@ async function deleteAllBut(events, collection) {
       $nin: eventIds,
     },
   });
-} 
+}
 
 function batchArray(array, batchSize) {
   return Array.from(

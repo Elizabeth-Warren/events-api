@@ -28,7 +28,6 @@ provider:
   runtime: nodejs8.10
   environment:
     MONGODB_URI: ${self:custom.mongo.${self:custom.stage}}
-    MOBILIZE_AMERICA_API_KEY: ${self:custom.mobilizeAmerica.${self:custom.stage}}
 
 plugins:
   - serverless-domain-manager
